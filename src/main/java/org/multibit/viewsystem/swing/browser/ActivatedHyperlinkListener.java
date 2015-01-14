@@ -28,8 +28,8 @@ import java.net.URL;
 
 public class ActivatedHyperlinkListener implements HyperlinkListener {
 
-    private static final String MULTIBIT_HOST_NAME = "www.multidoge.org";
-    private static final String MULTIBIT_HOST_NAME2 = "multidoge.org";
+    private static final String MULTIBIT_HOST_NAME = "www.groestlcoin.org";
+    private static final String MULTIBIT_HOST_NAME2 = "groestlcoin.org";
     private static final String MULTIBIT_HOST_NAME3 = "185.31.17.133";
     private static final String MULTIBIT_HOST_NAME4 = "localhost";
     

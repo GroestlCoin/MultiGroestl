@@ -15,8 +15,8 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.dogecoin.core.*;
-import com.google.dogecoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.core.*;
+import com.google.groestlcoin.crypto.KeyCrypterException;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.model.bitcoin.WalletBusyListener;
 import org.multibit.utils.WhitespaceTrimmer;

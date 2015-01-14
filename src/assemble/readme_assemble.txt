@@ -1,1 +1,1 @@
-The exe.xml is used to assemble the main executable jar: multidoge-exe.jar
+The exe.xml is used to assemble the main executable jar: multigroestl-exe.jar

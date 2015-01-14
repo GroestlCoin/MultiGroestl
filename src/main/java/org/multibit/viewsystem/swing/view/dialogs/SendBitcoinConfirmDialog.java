@@ -30,10 +30,10 @@ import org.multibit.viewsystem.swing.MultiBitFrame;
 import org.multibit.viewsystem.swing.view.components.FontSizer;
 import org.multibit.viewsystem.swing.view.components.MultiBitDialog;
 
-import com.google.dogecoin.core.Wallet.SendRequest;
+import com.google.groestlcoin.core.Wallet.SendRequest;
 
 /**
- * The send dogecoin confirm dialog.
+ * The send groestlcoin confirm dialog.
  */
 public class SendBitcoinConfirmDialog extends MultiBitDialog {
 
@@ -72,7 +72,7 @@ public class SendBitcoinConfirmDialog extends MultiBitDialog {
     }
 
     /**
-     * Initialise dogecoin confirm dialog.
+     * Initialise groestlcoin confirm dialog.
      */
     public void initUI() {
         FontMetrics fontMetrics = getFontMetrics(FontSizer.INSTANCE.getAdjustedDefaultFont());

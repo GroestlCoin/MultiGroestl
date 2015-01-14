@@ -51,10 +51,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.crypto.params.KeyParameter;
 
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.NetworkParameters;
-import com.google.dogecoin.core.Utils;
-import com.google.dogecoin.core.Wallet;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.NetworkParameters;
+import com.google.groestlcoin.core.Utils;
+import com.google.groestlcoin.core.Wallet;
 
 
 
@@ -66,9 +66,9 @@ public enum AlertManager {
 
     private Logger log = LoggerFactory.getLogger(AlertManager.class);
 
-    public static final String DEFAULT_VERSION_URL = "http://multidoge.org/version.txt";
+    public static final String DEFAULT_VERSION_URL = "http://groestlcoin.org/version.txt";
 
-    public static final String RELEASES_URL = "http://multidoge.org/";
+    public static final String RELEASES_URL = "http://groestlcoin.org/";
 
     public static final int NUMBER_OF_TIMES_TO_REPEAT_ALERT = 3;
     

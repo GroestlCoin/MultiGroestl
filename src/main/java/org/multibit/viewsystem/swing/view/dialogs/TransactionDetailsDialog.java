@@ -15,7 +15,7 @@
  */
 package org.multibit.viewsystem.swing.view.dialogs;
 
-import com.google.dogecoin.core.*;
+import com.google.groestlcoin.core.*;
 import org.multibit.MultiBit;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -52,9 +52,9 @@ import java.util.List;
  */
 public class TransactionDetailsDialog extends MultiBitDialog {
 
-    private static final String BLOCKCHAIN_INFO_PREFIX = "http://dogechain.info/tx/";
+    private static final String BLOCKCHAIN_INFO_PREFIX = "https://chainz.cryptoid.info/grs/tx.dws?";
 
-    private static final String BLOCKEXPLORER_TRANSACTION_PREFIX = "http://dogechain.info/tx/";
+    private static final String BLOCKEXPLORER_TRANSACTION_PREFIX = "https://chainz.cryptoid.info/grs/tx.dws?";
 
     private static final long serialVersionUID = 191435612345057705L;
 

@@ -36,8 +36,8 @@ import org.multibit.viewsystem.swing.view.panels.RemovePasswordPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.dogecoin.core.Wallet;
-import com.google.dogecoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.core.Wallet;
+import com.google.groestlcoin.crypto.KeyCrypterException;
 
 /**
  * This {@link Action} action removes the encryption of private keys in a wallet.

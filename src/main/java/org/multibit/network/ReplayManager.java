@@ -16,10 +16,10 @@
 
 package org.multibit.network;
 
-import com.google.dogecoin.core.CheckpointManager;
-import com.google.dogecoin.core.PeerGroup;
-import com.google.dogecoin.core.StoredBlock;
-import com.google.dogecoin.store.BlockStoreException;
+import com.google.groestlcoin.core.CheckpointManager;
+import com.google.groestlcoin.core.PeerGroup;
+import com.google.groestlcoin.core.StoredBlock;
+import com.google.groestlcoin.store.BlockStoreException;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.message.Message;
 import org.multibit.message.MessageManager;

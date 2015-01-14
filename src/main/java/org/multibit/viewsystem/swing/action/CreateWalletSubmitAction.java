@@ -49,8 +49,8 @@ import org.multibit.viewsystem.swing.view.panels.HelpContentsPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.Wallet;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.Wallet;
 
 /**
  * This {@link Action} creates a new wallet.

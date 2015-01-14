@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.dogecoin.core;
+package com.google.groestlcoin.core;
 
-import com.google.dogecoin.core.CoreTestUtils.BlockPair;
-import com.google.dogecoin.core.WalletTransaction.Pool;
-import com.google.dogecoin.crypto.KeyCrypter;
-import com.google.dogecoin.crypto.KeyCrypterException;
-import com.google.dogecoin.crypto.KeyCrypterScrypt;
-import com.google.dogecoin.store.BlockStore;
-import com.google.dogecoin.store.MemoryBlockStore;
-import com.google.dogecoin.utils.BriefLogFormatter;
-import com.google.dogecoin.utils.Threading;
+import com.google.groestlcoin.core.CoreTestUtils.BlockPair;
+import com.google.groestlcoin.core.WalletTransaction.Pool;
+import com.google.groestlcoin.crypto.KeyCrypter;
+import com.google.groestlcoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.crypto.KeyCrypterScrypt;
+import com.google.groestlcoin.store.BlockStore;
+import com.google.groestlcoin.store.MemoryBlockStore;
+import com.google.groestlcoin.utils.BriefLogFormatter;
+import com.google.groestlcoin.utils.Threading;
 import com.google.common.collect.Lists;
 import com.google.protobuf.ByteString;
 import org.bitcoinj.wallet.Protos;
@@ -40,7 +40,7 @@ import java.net.InetAddress;
 import java.security.SecureRandom;
 import java.util.*;
 
-import static com.google.dogecoin.core.Utils.toNanoCoins;
+import static com.google.groestlcoin.core.Utils.toNanoCoins;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
@@ -88,7 +88,7 @@ public class WalletTest {
             if (wallet.isPendingTransactionRelevant(tx))
                 wallet.receivePending(tx, new ArrayList<Transaction>());
         } else {
-            BlockPair bp = com.google.dogecoin.core.CoreTestUtils.createFakeBlock(params, blockStore, tx);
+            BlockPair bp = com.google.groestlcoin.core.CoreTestUtils.createFakeBlock(params, blockStore, tx);
             wallet.receiveFromBlock(tx, bp.storedBlock, type, 1);
             if (type == AbstractBlockChain.NewBlockType.BEST_CHAIN)
                 wallet.notifyNewBestBlock(bp.storedBlock);
@@ -103,12 +103,12 @@ public class WalletTest {
 
     private Transaction sendMoneyToWallet(Wallet wallet, BigInteger value, Address toAddress, AbstractBlockChain.NewBlockType type)
             throws IOException, VerificationException {
-        return sendMoneyToWallet(wallet, com.google.dogecoin.core.CoreTestUtils.createFakeTx(params, value, toAddress), type);
+        return sendMoneyToWallet(wallet, com.google.groestlcoin.core.CoreTestUtils.createFakeTx(params, value, toAddress), type);
     }
 
     private Transaction sendMoneyToWallet(BigInteger value, AbstractBlockChain.NewBlockType type) throws IOException,
             VerificationException {
-        return sendMoneyToWallet(this.wallet, com.google.dogecoin.core.CoreTestUtils.createFakeTx(params, value, myAddress), type);
+        return sendMoneyToWallet(this.wallet, com.google.groestlcoin.core.CoreTestUtils.createFakeTx(params, value, myAddress), type);
     }
 
     @Before
@@ -498,7 +498,7 @@ public class WalletTest {
         });
         assertEquals(TransactionConfidence.ConfidenceType.PENDING, notifiedTx[0].getConfidence().getConfidenceType());
         final Transaction t1Copy = new Transaction(params, t1.bitcoinSerialize());
-        com.google.dogecoin.core.CoreTestUtils.BlockPair fakeBlock = CoreTestUtils.createFakeBlock(params, blockStore, t1Copy);
+        com.google.groestlcoin.core.CoreTestUtils.BlockPair fakeBlock = CoreTestUtils.createFakeBlock(params, blockStore, t1Copy);
         wallet.receiveFromBlock(t1Copy, fakeBlock.storedBlock, BlockChain.NewBlockType.BEST_CHAIN, 1);
         wallet.notifyNewBestBlock(fakeBlock.storedBlock);
         assertFalse(flags[0]);

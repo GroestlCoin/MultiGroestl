@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>MultiDoge</string>
+	<string>MultiGroestl</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.multibit</string>
 	<key>CFBundleVersion</key>
@@ -21,13 +21,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleIconFile</key>
-	<string>multidoge.icns</string>
+	<string>multigroestl.icns</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright MultiBit developers 2013, MultiDoge developers 2014</string>
+	<string>Copyright MultiBit developers 2013, MultiGroestl developers 2014</string>
 	<key>CFBundleGetInfoString</key>
-	<string>MultiBit, © 2013 MultiBit developers; MultiDoge, © 2014 MultiDoge developers</string>
+	<string>MultiBit, © 2013 MultiBit developers; MultiGroestl, © 2014 MultiGroestl developers</string>
 	<key>CFBundleDisplayName</key>
-	<string>MultiDoge</string>
+	<string>MultiGroestl</string>
 	<key>Java</key>
 	<dict>
 		<key>WorkingDirectory</key>
@@ -37,7 +37,7 @@
 		<key>JVMVersion</key>
 		<string>1.6+</string>
 		<key>ClassPath</key>
-		<string>$JAVAROOT/multidoge-exe.jar</string>
+		<string>$JAVAROOT/multigroestl-exe.jar</string>
 		<key>Properties</key>
 		<dict>
 			<key>apple.laf.useScreenMenuBar</key>
@@ -50,12 +50,12 @@
 			<key>CFBundleTypeRole</key>
 			<string>Shell</string>
 			<key>CFBundleURLIconFile</key>
-			<string>multidoge.icns</string>
+			<string>multigroestl.icns</string>
 			<key>CFBundleURLName</key>
-			<string>org.multibit.dogecoin.url</string>
+			<string>org.multibit.groestlcoin.url</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>dogecoin</string>
+				<string>groestlcoin</string>
 			</array>
 		</dict>
 	</array>

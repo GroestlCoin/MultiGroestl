@@ -39,7 +39,8 @@ import org.multibit.viewsystem.swing.view.components.MultiBitLabel;
 public class HelpAboutPanel extends JPanel implements Viewable {
     private static final long serialVersionUID = 191352212345057705L;
 
-    private static final String MULTIBIT_URL = "https://multidoge.org";
+	private static final String SPLASH_ICON_FILE = "/images/multigroestl512.jpg";
+    private static final String MULTIBIT_URL = "https://groestlcoin.org";
     
     private Controller controller;
 
@@ -57,10 +58,23 @@ public class HelpAboutPanel extends JPanel implements Viewable {
 
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
-        
+		
+		ImageIcon imageIcon = ImageLoader.createImageIcon(SPLASH_ICON_FILE);
+        JLabel splashLabel = new JLabel();
+        splashLabel.setIcon(imageIcon);
         constraints.fill = GridBagConstraints.NONE;
         constraints.gridx = 0;
         constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.weightx = 1;
+        constraints.weighty = 0.4;
+        constraints.anchor = GridBagConstraints.CENTER;
+        add(splashLabel, constraints);
+
+        
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.gridx = 0;
+        constraints.gridy = 1;
         constraints.gridwidth = 1;
         constraints.weightx = 1;
         constraints.weighty = 0.1;
@@ -75,7 +89,7 @@ public class HelpAboutPanel extends JPanel implements Viewable {
 
         constraints.fill = GridBagConstraints.NONE;
         constraints.gridx = 0;
-        constraints.gridy = 1;
+        constraints.gridy = 2;
         constraints.gridwidth = 1;
         constraints.weightx = 1;
         constraints.weighty = 0.1;
@@ -84,7 +98,7 @@ public class HelpAboutPanel extends JPanel implements Viewable {
 
         constraints.fill = GridBagConstraints.NONE;
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 3;
         constraints.gridwidth = 1;
         constraints.weightx = 1;
         constraints.weighty = 0.1;
@@ -94,7 +108,7 @@ public class HelpAboutPanel extends JPanel implements Viewable {
 
         constraints.fill = GridBagConstraints.NONE;
         constraints.gridx = 0;
-        constraints.gridy = 3;
+        constraints.gridy = 4;
         constraints.gridwidth = 1;
         constraints.weightx = 1;
         constraints.weighty = 0.1;
@@ -104,7 +118,7 @@ public class HelpAboutPanel extends JPanel implements Viewable {
 
         constraints.fill = GridBagConstraints.NONE;
         constraints.gridx = 0;
-        constraints.gridy = 4;
+        constraints.gridy = 5;
         constraints.gridwidth = 1;
         constraints.weightx = 1;
         constraints.weighty = 0.2;

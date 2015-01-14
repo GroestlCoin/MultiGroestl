@@ -42,7 +42,7 @@ public class ApplicationDataDirectoryLocator {
      * 
      * This is worked out as follows:
      * 
-     * 1. See if there is a multidoge.properties in MultiDoge's current working
+     * 1. See if there is a multigroestl.properties in MultiGroestl's current working
      * directory If there is, use this directory as the application data
      * directory This is for backwards compatibility and for running everything
      * from a USB drive
@@ -53,17 +53,17 @@ public class ApplicationDataDirectoryLocator {
      * 
      * 2. Otherwise set the working directory as follows:
      * 
-     * PC System.getenv("APPDATA")/MultiDogeInExecutableJar
+     * PC System.getenv("APPDATA")/MultiGroestlInExecutableJar
      * 
-     * e.g. C:/Documents and Settings/Administrator/Application Data/MultiDogeInExecutableJar
+     * e.g. C:/Documents and Settings/Administrator/Application Data/MultiGroestlInExecutableJar
      * 
-     * Mac System.getProperty("user.home")/Library/Application Support/MultiDogeInExecutableJar
+     * Mac System.getProperty("user.home")/Library/Application Support/MultiGroestlInExecutableJar
      * 
-     * e.g. /Users/jim/Library/Application Support/MultiDogeInExecutableJar
+     * e.g. /Users/jim/Library/Application Support/MultiGroestlInExecutableJar
      * 
-     * Linux System.getProperty("user.home")/MultiDogeInExecutableJar
+     * Linux System.getProperty("user.home")/MultiGroestlInExecutableJar
      * 
-     * e.g. /Users/jim/MultiDogeInExecutableJar
+     * e.g. /Users/jim/MultiGroestlInExecutableJar
      */
     public String getApplicationDataDirectory() {
         if (applicationDataDirectory != null) {
@@ -78,18 +78,18 @@ public class ApplicationDataDirectoryLocator {
             String operatingSystemName = System.getProperty("os.name");
             if (operatingSystemName != null && operatingSystemName.startsWith("Windows")) {
                 // Windows os
-                applicationDataDirectory = System.getenv("APPDATA") + File.separator + "MultiDoge";
+                applicationDataDirectory = System.getenv("APPDATA") + File.separator + "MultiGroestl";
             } else {
                 if (operatingSystemName != null && operatingSystemName.startsWith("Mac")) {
                     // Mac os
                     if ( (new File("../../../../" + FileHandler.USER_PROPERTIES_FILE_NAME)).exists()) {
                         applicationDataDirectory = new File("../../../..").getAbsolutePath();
                     } else {
-                        applicationDataDirectory = System.getProperty("user.home") + "/Library/Application Support/MultiDoge";
+                        applicationDataDirectory = System.getProperty("user.home") + "/Library/Application Support/MultiGroestl";
                     }
                 } else {
                     // treat as Linux/ unix variant
-                    applicationDataDirectory = System.getProperty("user.home") + "/MultiDoge";
+                    applicationDataDirectory = System.getProperty("user.home") + "/MultiGroestl";
                 }
             }
             
@@ -108,7 +108,7 @@ public class ApplicationDataDirectoryLocator {
     
     /**
      * Get the installation directory.
-     * This is the directory into which MultiDoge was installed.
+     * This is the directory into which MultiGroestl was installed.
      * @throws IOException 
      * 
      * @TODO when running locally it is possible that the working directory directory and installation directory are different. Fix.

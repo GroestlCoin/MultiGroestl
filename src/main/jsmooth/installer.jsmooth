@@ -7,12 +7,12 @@
 <JVMSearchPath>exepath</JVMSearchPath>
 <JVMSearchPath>jview</JVMSearchPath>
 <arguments></arguments>
-<classPath>../../../target/multidoge-windows.jar</classPath>
+<classPath>../../../target/multigroestl-windows.jar</classPath>
 <embeddedJar>true</embeddedJar>
-<executableName>../../../target/multidoge-windows.exe</executableName>
-<iconLocation>../resources/images/multidoge.png</iconLocation>
+<executableName>../../../target/multigroestl-windows.exe</executableName>
+<iconLocation>../resources/images/multigroestl.png</iconLocation>
 <initialMemoryHeap>-1</initialMemoryHeap>
-<jarLocation>../../../target/multidoge-windows.jar</jarLocation>
+<jarLocation>../../../target/multigroestl-windows.jar</jarLocation>
 <mainClassName>com.izforge.izpack.installer.Installer</mainClassName>
 <maximumMemoryHeap>-1</maximumMemoryHeap>
 <maximumVersion></maximumVersion>

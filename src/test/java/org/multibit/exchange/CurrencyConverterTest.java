@@ -77,7 +77,7 @@ public class CurrencyConverterTest extends TestCase {
         converter.setCurrencyUnit(CurrencyUnit.of("USD"));
         converter.setRate(BigDecimal.valueOf(5.0));
 
-        Money converted = converter.convertFromBTCToFiat(CurrencyConverter.NUMBER_OF_SATOSHI_IN_ONE_BITCOIN);   // 1 dogecoin
+        Money converted = converter.convertFromBTCToFiat(CurrencyConverter.NUMBER_OF_SATOSHI_IN_ONE_BITCOIN);   // 1 groestlcoin
         
         assertNotNull(converted);
         assertEquals("Wrong currency", "USD", converted.getCurrencyUnit().getCurrencyCode());
@@ -103,7 +103,7 @@ public class CurrencyConverterTest extends TestCase {
         converter.initialise(controller, "EUR");
 
         result = converter.getFiatAsLocalisedString(Money.parse("EUR 1.23"));
-        assertEquals("Wrong EURO formatting", "\u20AC1.23", result);
+        assertEquals("Wrong EGRS formatting", "\u20AC1.23", result);
     }
     
     @Test 

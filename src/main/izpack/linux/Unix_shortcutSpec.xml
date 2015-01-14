@@ -2,27 +2,27 @@
 
 <shortcuts>
 
-  <programGroup defaultName="MultiDoge"
+  <programGroup defaultName="MultiGroestl"
   location="applications"/>
 
    <shortcut
-     name="MultiDoge ${project.version}"
+     name="MultiGroestl"
      programGroup="yes"
      desktop="yes"
      applications="no"
      startMenu="no"
      startup="no"
      target="/usr/bin/java"
-     commandLine="-jar $INSTALL_PATH/multidoge-exe.jar"
+     commandLine="-jar $INSTALL_PATH/multigroestl-exe.jar"
      initialState="normal"
-     iconFile="$INSTALL_PATH/multidoge48.png"
+     iconFile="$INSTALL_PATH/multigroestl48.png"
      workingDirectory="$INSTALL_PATH"
      type="Application"
      encoding="UTF-8"
-     description="MultiDoge ${project.version}">
+     description="MultiGroestl">
    </shortcut>
    <shortcut
-     name="Uninstall MultiDoge ${project.version}"
+     name="Uninstall MultiGroestl"
      programGroup="yes"
      desktop="yes"
      applications="no"
@@ -34,7 +34,7 @@
      workingDirectory="$INSTALL_PATH"
      type="Application"
      encoding="UTF-8"
-     description="Uninstall MultiDoge ${project.version}">
+     description="Uninstall MultiGroestl">
    </shortcut>
 </shortcuts>
 

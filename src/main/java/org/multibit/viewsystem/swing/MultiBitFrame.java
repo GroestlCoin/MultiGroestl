@@ -15,10 +15,10 @@
  */
 package org.multibit.viewsystem.swing;
 
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.Sha256Hash;
-import com.google.dogecoin.core.Transaction;
-import com.google.dogecoin.core.Wallet;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.Sha256Hash;
+import com.google.groestlcoin.core.Transaction;
+import com.google.groestlcoin.core.Wallet;
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.joda.money.Money;
 import org.multibit.ApplicationDataDirectoryLocator;
@@ -332,8 +332,8 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
     private void setupTray() {
         allowMinimizeToTray = Boolean.TRUE.toString().equals(userPreferences.getProperty(CoreModel.MINIMIZE_TO_TRAY, "false"));
 
-        Image trayIconIcon = new ImageIcon(this.getClass().getResource("/images/multidoge64.png")).getImage();
-        trayIcon = new TrayIcon(trayIconIcon, "MultiDoge");
+        Image trayIconIcon = new ImageIcon(this.getClass().getResource("/images/multigroestl64.png")).getImage();
+        trayIcon = new TrayIcon(trayIconIcon, "MultiGroestl");
         trayIcon.setImageAutoSize(true);
         trayIcon.addMouseListener(new MouseListener() {
             @Override
@@ -494,14 +494,14 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
         viewTabbedPane = new MultiBitTabbedPane(controller);
         viewTabbedPane.setBackground(ColorAndFontConstants.VERY_LIGHT_BACKGROUND_COLOR);
 
-        // Add the send dogecoin tab.
+        // Add the send groestlcoin tab.
         JPanel sendBitcoinOutlinePanel = new JPanel(new BorderLayout());
         Viewable sendBitcoinView = viewFactory.getView(View.SEND_BITCOIN_VIEW);
         sendBitcoinOutlinePanel.add((JPanel) sendBitcoinView, BorderLayout.CENTER);
         viewTabbedPane.addTab(sendBitcoinView.getViewTitle(), sendBitcoinView.getViewIcon(), sendBitcoinView.getViewTooltip(),
                 sendBitcoinOutlinePanel);
 
-        // Add the receive dogecoin tab.
+        // Add the receive groestlcoin tab.
         JPanel receiveBitcoinOutlinePanel = new JPanel(new BorderLayout());
         Viewable receiveBitcoinView = viewFactory.getView(View.RECEIVE_BITCOIN_VIEW);
         receiveBitcoinOutlinePanel.add((JPanel) receiveBitcoinView, BorderLayout.CENTER);
@@ -1032,7 +1032,7 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
         menuItem.setComponentOrientation(componentOrientation);
         viewMenu.add(menuItem);
 
-        // Send dogecoin action.
+        // Send groestlcoin action.
         MultiBitAction sendBitcoinAction = new MultiBitAction(controller, ImageLoader.SEND_BITCOIN_ICON_FILE,
                 "sendBitcoinAction.text", "sendBitcoinAction.tooltip", "sendBitcoinAction.mnemonic", View.SEND_BITCOIN_VIEW);
         sendBitcoinAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("sendBitcoinAction.tooltip")));

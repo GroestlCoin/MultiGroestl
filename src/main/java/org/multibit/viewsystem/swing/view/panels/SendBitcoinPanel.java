@@ -15,9 +15,9 @@
  */
 package org.multibit.viewsystem.swing.view.panels;
 
-import com.google.dogecoin.core.Address;
-import com.google.dogecoin.core.AddressFormatException;
-import com.google.dogecoin.core.Utils;
+import com.google.groestlcoin.core.Address;
+import com.google.groestlcoin.core.AddressFormatException;
+import com.google.groestlcoin.core.Utils;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.exchange.CurrencyConverter;
 import org.multibit.exchange.CurrencyConverterResult;
@@ -439,7 +439,7 @@ public class SendBitcoinPanel extends AbstractTradePanel implements Viewable {
     if (Boolean.TRUE.toString().equalsIgnoreCase(performPasteNow)) {
       try {
         Address decodeAddress = new Address(this.bitcoinController.getModel().getNetworkParameters(), address);
-        processDecodedString(com.google.dogecoin.uri.BitcoinURI.convertToBitcoinURI(decodeAddress, Utils.toNanoCoins(amountNotLocalised), label, null), null);
+        processDecodedString(com.google.groestlcoin.uri.BitcoinURI.convertToBitcoinURI(decodeAddress, Utils.toNanoCoins(amountNotLocalised), label, null), null);
         this.bitcoinController.getModel().setActiveWalletPreference(BitcoinModel.SEND_PERFORM_PASTE_NOW, "false");
         sendButton.requestFocusInWindow();
 

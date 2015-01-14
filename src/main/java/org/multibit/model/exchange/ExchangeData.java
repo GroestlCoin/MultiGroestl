@@ -46,7 +46,7 @@ public class ExchangeData {
     public static final String OPEN_EXCHANGE_RATES_EXCHANGE_NAME = "OpenExchangeRates";
     public static final String MT_GOX_EXCHANGE_NAME = "MtGox";
     public static final String VIRTEX_EXCHANGE_NAME = "VirtEx";
-    public static final String CRYPTSY_EXCHANGE_NAME = "Cryptsy";
+    public static final String CRYPTSY_EXCHANGE_NAME = "Poloniex";
     public static final String BITCOINAVERAGE_EXCHANGE_NAME = "BitcoinAverage";
 
     public static final String DEFAULT_EXCHANGE = CRYPTSY_EXCHANGE_NAME;

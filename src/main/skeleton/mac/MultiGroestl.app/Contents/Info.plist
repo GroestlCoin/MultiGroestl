@@ -11,11 +11,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>MultiDoge</string>
+	<string>MultiGroestl</string>
 	<key>CFBundleName</key>
-	<string>MultiDoge</string>
+	<string>MultiGroestl</string>
 	<key>CFBundleGetInfoString</key>
-	<string>MultiBit, © 2013 MultiBit developers; MultiDoge, © 2014 MultiDoge developers</string>
+	<string>MultiBit, © 2013 MultiBit developers; MultiGroestl, © 2014 MultiGroestl developers</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,7 +27,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright MultiBit developers 2013, MultiDoge developers 2014</string>
+	<string>Copyright MultiBit developers 2013, MultiGroestl developers 2014</string>
 	<key>JVMRuntime</key>
 	<string>jdk1.7.0_25.jdk</string>
 	<key>CFBundleIdentifier</key>

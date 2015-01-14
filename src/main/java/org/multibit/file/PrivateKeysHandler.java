@@ -35,8 +35,8 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TimeZone;
 
-import com.google.dogecoin.crypto.KeyCrypter;
-import com.google.dogecoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.crypto.KeyCrypter;
+import com.google.groestlcoin.crypto.KeyCrypterException;
 
 import org.multibit.crypto.KeyCrypterOpenSSL;
 import org.multibit.utils.DateUtils;
@@ -44,19 +44,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.crypto.params.KeyParameter;
 
-import com.google.dogecoin.core.AddressFormatException;
-import com.google.dogecoin.core.Block;
-import com.google.dogecoin.core.BlockChain;
-import com.google.dogecoin.core.DumpedPrivateKey;
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.NetworkParameters;
-import com.google.dogecoin.core.ScriptException;
-import com.google.dogecoin.core.StoredBlock;
-import com.google.dogecoin.core.Transaction;
-import com.google.dogecoin.core.TransactionInput;
-import com.google.dogecoin.core.TransactionOutput;
-import com.google.dogecoin.core.Utils;
-import com.google.dogecoin.core.Wallet;
+import com.google.groestlcoin.core.AddressFormatException;
+import com.google.groestlcoin.core.Block;
+import com.google.groestlcoin.core.BlockChain;
+import com.google.groestlcoin.core.DumpedPrivateKey;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.NetworkParameters;
+import com.google.groestlcoin.core.ScriptException;
+import com.google.groestlcoin.core.StoredBlock;
+import com.google.groestlcoin.core.Transaction;
+import com.google.groestlcoin.core.TransactionInput;
+import com.google.groestlcoin.core.TransactionOutput;
+import com.google.groestlcoin.core.Utils;
+import com.google.groestlcoin.core.Wallet;
 
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 
@@ -248,7 +248,7 @@ public class PrivateKeysHandler {
 
     private void outputHeaderComment(StringBuffer out) {
         out.append("# KEEP YOUR PRIVATE KEYS SAFE !").append("\n");
-        out.append("# Anyone who can read this file can spend your dogecoin.").append("\n");
+        out.append("# Anyone who can read this file can spend your groestlcoin.").append("\n");
         out.append("#").append("\n");
         out.append("# Format:").append("\n");
         out.append("#   <Base58 encoded private key>[<whitespace>[<key createdAt>]]").append("\n");

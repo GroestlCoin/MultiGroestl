@@ -25,6 +25,7 @@ import java.awt.GridBagLayout;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -77,6 +78,9 @@ public class WelcomePanel extends JPanel implements Viewable {
         mainPanel.setLayout(new GridBagLayout());
         mainPanel.setOpaque(false);
         mainPanel.applyComponentOrientation(ComponentOrientation.getOrientation(controller.getLocaliser().getLocale()));
+        
+        ImageIcon image = new ImageIcon("/images/digilyte128.png");
+        JLabel imagelabel = new JLabel(image);
 
         GridBagConstraints constraints = new GridBagConstraints();
 

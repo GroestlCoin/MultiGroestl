@@ -1,10 +1,10 @@
 <shortcuts> 
-   <programGroup defaultName="MultiDoge" location="applications"/> 
-   <shortcut name="MultiDoge ${project.version}" 
-             target="$INSTALL_PATH/multidoge.exe" 
-             description="MultiDoge" 
+   <programGroup defaultName="MultiGroestl" location="applications"/> 
+   <shortcut name="MultiGroestl" 
+             target="$INSTALL_PATH/multigroestl.exe" 
+             description="MultiGroestl" 
              workingDirectory="$INSTALL_PATH"
-             iconFile="$INSTALL_PATH/multidoge.ico" 
+             iconFile="$INSTALL_PATH/multigroestl.ico" 
              initialState="normal" 
              programGroup="yes"
              desktop="yes" 
@@ -12,9 +12,9 @@
              startMenu="no" 
              startup="no">
     </shortcut>
-    <shortcut name="Uninstall MultiDoge ${project.version}" 
+    <shortcut name="Uninstall MultiGroestl ${project.version}" 
              target="$INSTALL_PATH/uninstaller/uninstaller.jar" 
-             description="Uninstall MultiDoge" 
+             description="Uninstall MultiGroestl" 
              initialState="normal" 
              programGroup="yes"
              desktop="no" 

@@ -18,7 +18,7 @@ package org.multibit.model.bitcoin;
 import java.math.BigInteger;
 import java.util.Date;
 
-import com.google.dogecoin.core.Transaction;
+import com.google.groestlcoin.core.Transaction;
 
 /**
  * Class used to store the data in the Transactions table in a quick to access data form.

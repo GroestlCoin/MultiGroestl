@@ -1,30 +1,30 @@
 ### Introduction
 
-MultiDoge is a Simplified Payment Verification (SPV) Dogecoin desktop client.
+MultiGroestl is a Simplified Payment Verification (SPV) Groestlcoin desktop client.
 It is ported from the MultiBit Bitcoin client. Huge thanks to the original devs for this awesome project!
 
-MultiDoge relies on the following technologies:
+MultiGroestl relies on the following technologies:
 
 * Maven as the build system, so the usual Maven processes apply. If you're not familiar
 with Maven then [download it first](http://maven.apache.org) and follow their installation instructions.
 * [ZXing ("Zebra Crossing")](https://code.google.com/p/zxing/) for QR codes
-* [Dogecoinj](https://github.com/langerhans/dogecoinj-new) for access to the Dogecoin network
+* [Groestlcoinj](https://github.com/langerhans/groestlcoinj-new) for access to the Groestlcoin network
 * IzPack for creating installers for Windows, Mac, Linux
 * [Bitcoinj Enforcer Rules](https://github.com/gary-rowe/BitcoinjEnforcerRules) to prevent dependency chain attacks
 * [XChange](https://github.com/timmolter/XChange) for access to several Bitcoin exchanges
 
-#### A note on the Dogecoinj dependency
+#### A note on the Groestlcoinj dependency
 
-MultiDoge depends on a special fork of Dogecoinj for its Bitcoin support. This is due to legacy wallet serialization issues
-and the MultiDoge team are working towards a complete integration. To build MultiDoge you will need to clone this fork from
+MultiGroestl depends on a special fork of Groestlcoinj for its Bitcoin support. This is due to legacy wallet serialization issues
+and the MultiGroestl team are working towards a complete integration. To build MultiGroestl you will need to clone this fork from
 here:
 ```
-https://code.google.com/r/maxkeller90-dogecoinj-multibit/
+https://code.google.com/r/esotericizm88-groestlcoincoinj-multibit
 ```
 
-The branch you should use for the MultiDoge develop code is: `bcj-0.10.3-mb-alice`
+The branch you should use for the MultiGroestl develop code is: `bcj-0.10.3-mb-alice`
 
-Once cloned, you should then install the custom Dogecoinj library using
+Once cloned, you should then install the custom Groestlcoinj library using
 
 ```
 mvn clean install
@@ -46,7 +46,7 @@ Once the release has been tested and is ready to go live, the final act is to up
 
 The `master` branch is then tagged with the release number. Tags are in the format `v1.2.3` to distinguish them from branch names.
 
-An announcement is made on the MultiDoge website to alert everyone that a new version is available.
+An announcement is made on the MultiGroestl website to alert everyone that a new version is available.
 
 ### Maven build targets
 
@@ -56,7 +56,7 @@ The important targets are:
 mvn clean package
 ```
 
-which will package the MultiDoge project into `multidoge-x.y.z.jar` where `x.y.z` is the current version
+which will package the MultiGroestl project into `multigroestl-x.y.z.jar` where `x.y.z` is the current version
 number. This is suitable for local development work.
 
 If you want to generate a complete set of multi-platform installers (Windows, Mac and Linux) you 
@@ -68,25 +68,25 @@ maven clean install
 
 After some processing, you will have the following artifacts in the target directory:
 
-* an executable jar = multidoge-exe.jar
-* a Mac application bundle = MultiDoge.app
-* a Mac DMG file = multidoge-x.y.z.dmg
-* an installer for Windows = multidoge-x.y.z-windows.exe
-* an installer for Linux = multidoge-x.y.z-linux.jar
+* an executable jar = multigroestl-exe.jar
+* a Mac application bundle = MultiGroestl.app
+* a Mac DMG file = multigroestl-x.y.z.dmg
+* an installer for Windows = multigroestl-x.y.z-windows.exe
+* an installer for Linux = multigroestl-x.y.z-linux.jar
 
-To run MultiDoge from these artifacts you can follow the instructions [provided on the main MultiDoge
-website](https://multidoge.org/help.html)
+To run MultiGroestl from these artifacts you can follow the instructions [provided on the main MultiGroestl
+website](https://groestlcoin.org/help.html)
 
-### MultiDoge contains cut down JREs so is a large clone
+### MultiGroestl contains cut down JREs so is a large clone
 
-The MultiDoge installers contain cut down JREs so the project clone is quite large.
+The MultiGroestl installers contain cut down JREs so the project clone is quite large.
 (100 to 200 MB).
 
 ### Custom configuration
 
-MultiDoge is quite flexible and has several features only accessible to power users through the configuration file. This
+MultiGroestl is quite flexible and has several features only accessible to power users through the configuration file. This
 is discussed in more detail in [configuration.md](configuration.md)
 
 ### Contributing
 
-If you want to contribute, please contact me at: [info@multidoge.org](mailto:info@multidoge.org).
+If you want to contribute, please contact me at: [info@groestlcoin.org](mailto:info@groestlcoin.org).

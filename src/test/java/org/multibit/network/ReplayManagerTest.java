@@ -41,11 +41,11 @@ import org.multibit.viewsystem.simple.SimpleViewSystem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.dogecoin.core.DumpedPrivateKey;
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.NetworkParameters;
-import com.google.dogecoin.core.Wallet;
-import com.google.dogecoin.core.Wallet.BalanceType;
+import com.google.groestlcoin.core.DumpedPrivateKey;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.NetworkParameters;
+import com.google.groestlcoin.core.Wallet;
+import com.google.groestlcoin.core.Wallet.BalanceType;
 
 public class ReplayManagerTest extends TestCase {
     private static final Logger log = LoggerFactory.getLogger(ReplayManagerTest.class);
@@ -77,7 +77,7 @@ public class ReplayManagerTest extends TestCase {
         controller = controllers.bitcoinController;
 
         log.debug("Creating Bitcoin service");
-        // Create the MultiBitService that connects to the dogecoin network.
+        // Create the MultiBitService that connects to the groestlcoin network.
         MultiBitService multiBitService = new MultiBitService(controller);
         controller.setMultiBitService(multiBitService);
 
@@ -191,14 +191,14 @@ public class ReplayManagerTest extends TestCase {
         System.out.println("Building MultiBit runtime in : " + multiBitDirectory.getAbsolutePath());
 
         // Create an empty multibit.properties.
-        File multibitProperties = new File(multiBitDirectoryPath + File.separator + "multidoge.properties");
+        File multibitProperties = new File(multiBitDirectoryPath + File.separator + "multigroestl.properties");
         multibitProperties.createNewFile();
         multibitProperties.deleteOnExit();
 
         // Copy in the checkpoints and blockchain stored in git - this is in
         // source/main/resources/.
-        File multibitBlockcheckpoints = new File(multiBitDirectoryPath + File.separator + "multidoge.checkpoints");
-        FileHandler.copyFile(new File("./src/main/resources/multidoge.checkpoints"), multibitBlockcheckpoints);
+        File multibitBlockcheckpoints = new File(multiBitDirectoryPath + File.separator + "multigroestl.checkpoints");
+        FileHandler.copyFile(new File("./src/main/resources/multigroestl.checkpoints"), multibitBlockcheckpoints);
         multibitBlockcheckpoints.deleteOnExit();
 
         return multiBitDirectory;

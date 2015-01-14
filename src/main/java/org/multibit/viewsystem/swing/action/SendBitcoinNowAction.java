@@ -15,10 +15,10 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.dogecoin.core.AddressFormatException;
-import com.google.dogecoin.core.Transaction;
-import com.google.dogecoin.core.Wallet.SendRequest;
-import com.google.dogecoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.core.AddressFormatException;
+import com.google.groestlcoin.core.Transaction;
+import com.google.groestlcoin.core.Wallet.SendRequest;
+import com.google.groestlcoin.crypto.KeyCrypterException;
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -37,7 +37,7 @@ import java.io.IOException;
 import java.nio.CharBuffer;
 
 /**
- * This {@link Action} actually spends dogecoin.
+ * This {@link Action} actually spends groestlcoin.
  */
 public class SendBitcoinNowAction extends AbstractAction implements WalletBusyListener {
 
@@ -93,7 +93,7 @@ public class SendBitcoinNowAction extends AbstractAction implements WalletBusyLi
   }
 
   /**
-   * Actually send the dogecoin.
+   * Actually send the groestlcoin.
    */
   @Override
   public void actionPerformed(ActionEvent event) {
@@ -214,7 +214,7 @@ public class SendBitcoinNowAction extends AbstractAction implements WalletBusyLi
       log.error(e.getMessage(), e);
       message = controller.getLocaliser().getString("sendBitcoinNowAction.pingFailure");
     } catch (Exception e) {
-      // Really trying to catch anything that goes wrong with the send dogecoin.
+      // Really trying to catch anything that goes wrong with the send groestlcoin.
       log.error(e.getMessage(), e);
       message = e.getMessage();
     } finally {

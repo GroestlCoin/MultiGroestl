@@ -66,7 +66,7 @@ public class CreateAndDeleteWalletsTest extends TestCase {
             controller = controllers.bitcoinController;
 
             log.debug("Creating Bitcoin service");
-            // create the MultiBitService that connects to the dogecoin network
+            // create the MultiBitService that connects to the groestlcoin network
             MultiBitService multiBitService = new MultiBitService(controller);
             controller.setMultiBitService(multiBitService);
 
@@ -120,16 +120,16 @@ public class CreateAndDeleteWalletsTest extends TestCase {
         File multiBitDirectory = FileHandler.createTempDirectory("CreateAndDeleteWalletsTest");
         String multiBitDirectoryPath = multiBitDirectory.getAbsolutePath();
 
-        System.out.println("Building MultiDoge runtime in : " + multiBitDirectory.getAbsolutePath());
+        System.out.println("Building MultiGroestl runtime in : " + multiBitDirectory.getAbsolutePath());
 
         // Create an empty multibit.properties.
-        File multibitProperties = new File(multiBitDirectoryPath + File.separator + "multidoge.properties");
+        File multibitProperties = new File(multiBitDirectoryPath + File.separator + "multigroestl.properties");
         multibitProperties.createNewFile();
         multibitProperties.deleteOnExit();
 
         // Copy in the checkpoints stored in git - this is in source/main/resources/.
-        File multibitCheckpoints = new File(multiBitDirectoryPath + File.separator + "multidoge.checkpoints");
-        FileHandler.copyFile(new File("./src/main/resources/multidoge.checkpoints"), multibitCheckpoints);
+        File multibitCheckpoints = new File(multiBitDirectoryPath + File.separator + "multigroestl.checkpoints");
+        FileHandler.copyFile(new File("./src/main/resources/multigroestl.checkpoints"), multibitCheckpoints);
         multibitCheckpoints.deleteOnExit();
 
         return multiBitDirectory;

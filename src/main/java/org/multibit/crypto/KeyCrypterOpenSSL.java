@@ -32,8 +32,8 @@ import org.spongycastle.crypto.modes.CBCBlockCipher;
 import org.spongycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.spongycastle.crypto.params.ParametersWithIV;
 
-import com.google.dogecoin.core.Utils;
-import com.google.dogecoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.core.Utils;
+import com.google.groestlcoin.crypto.KeyCrypterException;
 import com.google.common.base.Preconditions;
 
 /**

@@ -187,7 +187,7 @@ public enum CurrencyConverter {
         currencyCodeToDescriptionMap.put("DZD", "Algerian Dinar");
         currencyCodeToDescriptionMap.put("EGP", "Egyptian Pound");
         currencyCodeToDescriptionMap.put("ETB", "Ethiopian Birr");
-        currencyCodeToDescriptionMap.put("EUR", "Euro");
+        currencyCodeToDescriptionMap.put("EUR", "Egroestlcoin");
         currencyCodeToDescriptionMap.put("FJD", "Fijian Dollar");
         currencyCodeToDescriptionMap.put("FKP", "Falkland Islands Pound");
         currencyCodeToDescriptionMap.put("GBP", "British Pound Sterling");

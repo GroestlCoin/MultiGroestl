@@ -105,7 +105,8 @@ public class CreateNewReceivingAddressPanel extends JPanel {
         numberOfAddresses.addItem(5);
         numberOfAddresses.addItem(20);
         numberOfAddresses.addItem(100);
-        //numberOfAddresses.addItem(new Integer(500));
+		numberOfAddresses.addItem(new Integer(500));
+        numberOfAddresses.addItem(new Integer(2500));
 
         constraints.fill = GridBagConstraints.NONE;
         constraints.gridx = 5;

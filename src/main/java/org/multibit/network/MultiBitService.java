@@ -15,14 +15,14 @@
  */
 package org.multibit.network;
 
-import com.google.dogecoin.core.MultiBitBlockChain;
-import com.google.dogecoin.core.*;
-import com.google.dogecoin.core.Wallet.SendRequest;
-import com.google.dogecoin.crypto.KeyCrypterException;
-import com.google.dogecoin.discovery.DnsDiscovery;
-import com.google.dogecoin.store.BlockStore;
-import com.google.dogecoin.store.BlockStoreException;
-import com.google.dogecoin.store.SPVBlockStore;
+import com.google.groestlcoin.core.MultiBitBlockChain;
+import com.google.groestlcoin.core.*;
+import com.google.groestlcoin.core.Wallet.SendRequest;
+import com.google.groestlcoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.discovery.DnsDiscovery;
+import com.google.groestlcoin.store.BlockStore;
+import com.google.groestlcoin.store.BlockStoreException;
+import com.google.groestlcoin.store.SPVBlockStore;
 import com.google.common.util.concurrent.ListenableFuture;
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.multibit.ApplicationDataDirectoryLocator;
@@ -60,12 +60,12 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * <p>
- * MultiBitService encapsulates the interaction with the dogecoin netork
+ * MultiBitService encapsulates the interaction with the groestlcoin netork
  * including: o Peers o Block chain download o sending / receiving bitcoins
  * <p/>
  * The testnet can be slow or flaky as it's a shared resource. You can use the
  * <a href="http://sourceforge
- * .net/projects/dogecoin/files/Bitcoin/testnet-in-a-box/">testnet in a box</a>
+ * .net/projects/groestlcoin/files/Bitcoin/testnet-in-a-box/">testnet in a box</a>
  * to do everything purely locally.
  * </p>
  */
@@ -74,7 +74,7 @@ public class MultiBitService {
 
   private static final Logger log = LoggerFactory.getLogger(MultiBitService.class);
 
-  public static final String MULTIBIT_PREFIX = "multidoge";
+  public static final String MULTIBIT_PREFIX = "multigroestl";
   public static final String TESTNET_PREFIX = "testnet";
   public static final String TESTNET3_PREFIX = "testnet3";
   public static final String SEPARATOR = "-";
@@ -565,7 +565,7 @@ public class MultiBitService {
   public Transaction sendCoins(WalletData perWalletModelData, SendRequest sendRequest,
                                CharSequence password) throws java.io.IOException, AddressFormatException, KeyCrypterException {
 
-    // Ping the peers to check the dogecoin network connection
+    // Ping the peers to check the groestlcoin network connection
     List<Peer> connectedPeers = peerGroup.getConnectedPeers();
     boolean atLeastOnePingWorked = false;
     if (connectedPeers != null) {

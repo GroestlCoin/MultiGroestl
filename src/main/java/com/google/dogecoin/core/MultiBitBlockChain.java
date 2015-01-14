@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.dogecoin.core;
+package com.google.groestlcoin.core;
 
 import java.io.File;
 import java.util.List;
 
-import com.google.dogecoin.store.BlockStore;
-import com.google.dogecoin.store.BlockStoreException;
-import com.google.dogecoin.store.SPVBlockStore;
+import com.google.groestlcoin.store.BlockStore;
+import com.google.groestlcoin.store.BlockStoreException;
+import com.google.groestlcoin.store.SPVBlockStore;
 
 /**
  * Extension of bitcoinj BlockChain for use with block chain replay.

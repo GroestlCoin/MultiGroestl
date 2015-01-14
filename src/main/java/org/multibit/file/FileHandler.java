@@ -15,10 +15,10 @@
  */
 package org.multibit.file;
 
-import com.google.dogecoin.core.BlockChain;
-import com.google.dogecoin.core.ECKey;
-import com.google.dogecoin.core.Wallet;
-import com.google.dogecoin.crypto.KeyCrypterException;
+import com.google.groestlcoin.core.BlockChain;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.Wallet;
+import com.google.groestlcoin.crypto.KeyCrypterException;
 import org.multibit.ApplicationDataDirectoryLocator;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -50,8 +50,8 @@ import java.util.*;
 public class FileHandler {
     private static Logger log = LoggerFactory.getLogger(FileHandler.class);
 
-    public static final String USER_PROPERTIES_FILE_NAME = "multidoge.properties";
-    public static final String USER_PROPERTIES_HEADER_TEXT = "multidoge";
+    public static final String USER_PROPERTIES_FILE_NAME = "multigroestl.properties";
+    public static final String USER_PROPERTIES_HEADER_TEXT = "multigroestl";
 
     private final Controller controller;
     private final BitcoinController bitcoinController;
