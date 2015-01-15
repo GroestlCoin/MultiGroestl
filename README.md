@@ -8,7 +8,7 @@ MultiGroestl relies on the following technologies:
 * Maven as the build system, so the usual Maven processes apply. If you're not familiar
 with Maven then [download it first](http://maven.apache.org) and follow their installation instructions.
 * [ZXing ("Zebra Crossing")](https://code.google.com/p/zxing/) for QR codes
-* [Groestlcoinj](https://github.com/langerhans/groestlcoinj-new) for access to the Groestlcoin network
+* [Groestlcoinj](https://github.com/GroestlCoin/groestlcoinj-mb-alice) for access to the Groestlcoin network
 * IzPack for creating installers for Windows, Mac, Linux
 * [Bitcoinj Enforcer Rules](https://github.com/gary-rowe/BitcoinjEnforcerRules) to prevent dependency chain attacks
 * [XChange](https://github.com/timmolter/XChange) for access to several Bitcoin exchanges
@@ -19,10 +19,8 @@ MultiGroestl depends on a special fork of Groestlcoinj for its Bitcoin support. 
 and the MultiGroestl team are working towards a complete integration. To build MultiGroestl you will need to clone this fork from
 here:
 ```
-https://code.google.com/r/esotericizm88-groestlcoincoinj-multibit
+https://github.com/GroestlCoin/groestlcoinj-mb-alice
 ```
-
-The branch you should use for the MultiGroestl develop code is: `bcj-0.10.3-mb-alice`
 
 Once cloned, you should then install the custom Groestlcoinj library using
 
