@@ -26,7 +26,7 @@ public class DogeUtils {
     {
         try
         {
-            DOGEPOOL_URL = new URL("http://104.237.137.28/ticker.php");
+            DOGEPOOL_URL = new URL("http://groestlcoin.org/grsticker.php");
             CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132");
             VIRCUREX_URL = new URL("https://vircurex.com/api/get_last_trade.json?base=GRS&alt=BTC");
         }
