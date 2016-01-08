@@ -305,7 +305,7 @@ public class MultiBitService {
   public void createNewPeerGroup() {
     peerGroup = new MultiBitPeerGroup(bitcoinController, networkParameters, blockChain);
     peerGroup.setFastCatchupTimeSecs(0); // genesis block
-    peerGroup.setUserAgent("MultiBit", controller.getLocaliser().getVersionNumber());
+    peerGroup.setUserAgent("MultiGroestl", controller.getLocaliser().getVersionNumber());
 
     boolean peersSpecified = false;
     String singleNodeConnection = controller.getModel().getUserPreference(BitcoinModel.SINGLE_NODE_CONNECTION);
