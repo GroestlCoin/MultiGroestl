@@ -87,4 +87,4 @@ is discussed in more detail in [configuration.md](configuration.md)
 
 ### Contributing
 
-If you want to contribute, please contact me at: [info@groestlcoin.org](mailto:info@groestlcoin.org).
+If you want to contribute, please contact me at: [groestlcoin@gmail.com](mailto:groestlcoin@gmail.com).
