@@ -1,7 +1,4 @@
 MultiGroestl release notes:
 
-28 Aug 2014: 0.1.3
-+ Prepare for AuxPoW fork
-+ Default font fix
+19 Jan 2016: 0.1.3.2
 + Updated checkpoints
-+ Translation fixes
