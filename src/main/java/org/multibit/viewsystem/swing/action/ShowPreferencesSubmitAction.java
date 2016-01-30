@@ -319,56 +319,9 @@ public class ShowPreferencesSubmitAction extends AbstractAction {
         tickerTimerTask1.createExchangeObjects(controller.getModel().getUserPreference(ExchangeModel.TICKER_FIRST_ROW_EXCHANGE));
         mainFrame.setTickerTimerTask1(tickerTimerTask1);
 
-<<<<<<< HEAD
-            //Minimze to tray
-            boolean newMinimizeToTray = dataProvider.getNewMinimizeToTray();
-            controller.getModel().setUserPreference(CoreModel.MINIMIZE_TO_TRAY, Boolean.valueOf(newMinimizeToTray).toString());
-            mainFrame.allowMinimizeToTray = Boolean.valueOf(newMinimizeToTray);
 
-            // Currency ticker.
-            boolean showTicker = dataProvider.getNewShowTicker();
-            boolean showBitcoinConvertedToFiat = dataProvider.getNewShowBitcoinConvertedToFiat();
-            boolean showCurrency = dataProvider.getNewShowCurrency();
-            boolean showRate = dataProvider.getNewShowRate();
-            boolean showBid = dataProvider.getNewShowBid();
-            boolean showAsk = dataProvider.getNewShowAsk();
-            boolean showExchange = dataProvider.getNewShowExchange();
-
-            boolean restartTickerTimer = false;
-
-            if (dataProvider.getPreviousShowCurrency() != showCurrency) {
-                wantToFireDataStructureChanged = true;
-                restartTickerTimer = true;
-            } else if (dataProvider.getPreviousShowBitcoinConvertedToFiat() != showBitcoinConvertedToFiat) {
-                wantToFireDataStructureChanged = true;
-                if (showBitcoinConvertedToFiat) {
-                    restartTickerTimer = true;
-                }
-            } else if (dataProvider.getPreviousShowTicker() != showTicker || showTicker != dataProvider.isTickerVisible()) {
-                wantToFireDataStructureChanged = true;
-                if (showTicker) {
-                    restartTickerTimer = true;
-                }
-            } else if (dataProvider.getPreviousShowRate() != showRate) {
-                wantToFireDataStructureChanged = true;
-                restartTickerTimer = true;
-            } else if (dataProvider.getPreviousShowBid() != showBid) {
-                wantToFireDataStructureChanged = true;
-                restartTickerTimer = true;
-            } else if (dataProvider.getPreviousShowAsk() != showAsk) {
-                wantToFireDataStructureChanged = true;
-                restartTickerTimer = true;
-            } else if (dataProvider.getPreviousShowExchange() != showExchange) {
-                wantToFireDataStructureChanged = true;
-                restartTickerTimer = true;
-            } 
-
-            controller.getModel().setUserPreference(ExchangeModel.TICKER_SHOW, Boolean.valueOf(showTicker).toString());
-            controller.getModel().setUserPreference(ExchangeModel.SHOW_BITCOIN_CONVERTED_TO_FIAT,
-              Boolean.valueOf(showBitcoinConvertedToFiat).toString());
-=======
         tickerTimer1.schedule(tickerTimerTask1, 0, TickerTimerTask.DEFAULT_REPEAT_RATE);
->>>>>>> original_multibit/master
+
 
         boolean showSecondRow = Boolean.TRUE.toString().equals(
                 controller.getModel().getUserPreference(ExchangeModel.TICKER_SHOW_SECOND_ROW));

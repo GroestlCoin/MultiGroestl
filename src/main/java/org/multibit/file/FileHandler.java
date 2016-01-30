@@ -15,18 +15,11 @@
  */
 package org.multibit.file;
 
-<<<<<<< HEAD
 import com.google.groestlcoin.core.BlockChain;
 import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.Utils;
 import com.google.groestlcoin.core.Wallet;
 import com.google.groestlcoin.crypto.KeyCrypterException;
-=======
-import com.google.bitcoin.core.BlockChain;
-import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.Utils;
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.crypto.KeyCrypterException;
->>>>>>> original_multibit/master
 import org.multibit.ApplicationDataDirectoryLocator;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -546,8 +539,7 @@ public class FileHandler {
                     && this.bitcoinController.getModel().getActiveWalletWalletInfo() != null
                     && this.bitcoinController.getModel().getActiveWalletWalletInfo().getWalletVersion() == MultiBitWalletVersion.PROTOBUF_ENCRYPTED) {
                 // Save a backup copy of the private keys, encrypted with the passwordToUse.
-                PrivateKeysHandler privateKeysHandler = new PrivateKeysHandler(this.bitcoinController.getModel()
-                        .getNetworkParameters());
+                PrivateKeysHandler privateKeysHandler = new PrivateKeysHandler(this.bitcoinController.getModel().getNetworkParameters());
                 String privateKeysBackupFilename = BackupManager.INSTANCE.createBackupFilename(new File(this.bitcoinController.getModel()
                         .getActiveWalletFilename()), BackupManager.PRIVATE_KEY_BACKUP_DIRECTORY_NAME, false, false, BitcoinModel.PRIVATE_KEY_FILE_EXTENSION);
                 privateKeysBackupFile = new File(privateKeysBackupFilename);

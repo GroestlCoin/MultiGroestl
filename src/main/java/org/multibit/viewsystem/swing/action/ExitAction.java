@@ -15,14 +15,12 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-<<<<<<< HEAD
+import org.multibit.controller.Controller;
+
+
 import com.google.groestlcoin.store.BlockStore;
 import com.google.groestlcoin.store.BlockStoreException;
-=======
-import com.google.bitcoin.store.BlockStore;
-import com.google.bitcoin.store.BlockStoreException;
 import com.google.common.util.concurrent.Uninterruptibles;
->>>>>>> original_multibit/master
 import org.multibit.ApplicationInstanceManager;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -34,7 +32,6 @@ import org.multibit.message.Message;
 import org.multibit.message.MessageManager;
 import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.core.CoreModel;
-import org.multibit.store.WalletVersionException;
 import org.multibit.viewsystem.swing.HealthCheckTimerTask;
 import org.multibit.viewsystem.swing.MultiBitFrame;
 import org.slf4j.Logger;
@@ -125,7 +122,7 @@ public class ExitAction extends AbstractExitAction {
             // Stop the peer group so that blocks are notified to wallets correctly.
             if (bitcoinController.getMultiBitService().getPeerGroup() != null) {
                 log.debug("Closing Bitcoin network connection...");
-                bitcoinController.getMultiBitService().getPeerGroup().stopAndWait();
+                bitcoinController.getMultiBitService().getPeerGroup().stop();
                 log.debug("PeerGroup is now stopped.");
             }
 
@@ -147,13 +144,13 @@ public class ExitAction extends AbstractExitAction {
 
         if (bitcoinController != null && mainFrame != null) {
             // Save the current window state so we can restore it on next start
-            bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_SIZE_H, String.valueOf(mainFrame.getHeight()));
+          /**  bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_SIZE_H, String.valueOf(mainFrame.getHeight()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_SIZE_W, String.valueOf(mainFrame.getWidth()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_POS_X, String.valueOf(mainFrame.getX()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_POS_Y, String.valueOf(mainFrame.getY()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_MAX, String.valueOf(mainFrame.getExtendedState()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_TRAY, String.valueOf(mainFrame.isInTray()));
-        }
+        */}
 
         if (bitcoinController != null) {
             // Save all the wallets and put their filenames in the user preferences.
@@ -192,7 +189,7 @@ public class ExitAction extends AbstractExitAction {
                             MessageManager.INSTANCE.addMessage(new Message(wse2.getClass().getCanonicalName() + " "
                                     + wse2.getMessage()));
                         }
-                    } catch (WalletVersionException wve) {
+                    } catch (Exception wve) {
                         log.error(wve.getClass().getCanonicalName() + " " + wve.getMessage());
                         MessageManager.INSTANCE.addMessage(new Message(wve.getClass().getCanonicalName() + " " + wve.getMessage()));
                     }

@@ -411,12 +411,7 @@ public class ReceiveBitcoinPanel extends AbstractTradePanel implements Viewable 
       return;
     }
 
-<<<<<<< HEAD
-    @Override
-    public void checkDeleteSendingEnabled() {
-        // Not used on receive groestlcoin panel.
-    }
-=======
+
     JTextField aTextField = new JTextField();
     labelTextArea.setBorder(aTextField.getBorder());
 
@@ -452,5 +447,5 @@ public class ReceiveBitcoinPanel extends AbstractTradePanel implements Viewable 
   public void checkDeleteSendingEnabled() {
     // Not used on receive bitcoin panel.
   }
->>>>>>> original_multibit/master
+
 }

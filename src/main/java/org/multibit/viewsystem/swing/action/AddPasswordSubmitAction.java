@@ -15,10 +15,6 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterException;
-import com.google.bitcoin.crypto.KeyCrypterScrypt;
 import com.google.protobuf.ByteString;
 import org.bitcoinj.wallet.Protos;
 import org.bitcoinj.wallet.Protos.ScryptParameters;
@@ -34,19 +30,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.util.Arrays;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.Wallet;
 import com.google.groestlcoin.crypto.KeyCrypter;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 import com.google.groestlcoin.crypto.KeyCrypterScrypt;
 import com.google.protobuf.ByteString;
-=======
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.CharBuffer;
->>>>>>> original_multibit/master
+
 
 /**
  * This {@link Action} action encrypts the private keys with the password.

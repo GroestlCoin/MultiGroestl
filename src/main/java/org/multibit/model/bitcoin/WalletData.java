@@ -15,15 +15,13 @@
  */
 package org.multibit.model.bitcoin;
 
-import com.google.bitcoin.core.Wallet;
-import org.multibit.viewsystem.swing.view.walletlist.SingleWalletPanelDownloadListener;
 
-<<<<<<< HEAD
+import org.multibit.viewsystem.swing.view.walletlist.SingleWalletPanelDownloadListener;
 import com.google.groestlcoin.core.Wallet;
-=======
+
 import java.util.List;
 import java.util.UUID;
->>>>>>> original_multibit/master
+
 
 /**
  * This wrapper class wraps all the data pertaining to a single wallet.

@@ -299,7 +299,7 @@ public final class MultiBit {
                         String walletCleanedOfSpam = walletInfo.getProperty(BitcoinModel.WALLET_CLEANED_OF_SPAM);
                         if (!Boolean.TRUE.toString().equalsIgnoreCase(walletCleanedOfSpam)) {
                           log.debug("Cleaning wallet '" + activeWalletFilename + "' of spam ...");
-                          perWalletModelDataList.get(0).getWallet().cleanup();
+                          //perWalletModelDataList.get(0).getWallet().cleanup();
                           walletInfo.put(BitcoinModel.WALLET_CLEANED_OF_SPAM, Boolean.TRUE.toString());
                           bitcoinController.getFileHandler().savePerWalletModelData(perWalletModelDataList.get(0), false);
                           log.debug("done.");
@@ -445,7 +445,7 @@ public final class MultiBit {
                                 String walletCleanedOfSpam = walletInfo.getProperty(BitcoinModel.WALLET_CLEANED_OF_SPAM);
                                 if (!Boolean.TRUE.toString().equalsIgnoreCase(walletCleanedOfSpam)) {
                                     log.debug("Cleaning wallet '" + activeWalletFilename + "' of spam ...");
-                                    perWalletModelData.getWallet().cleanup();
+                                    //perWalletModelData.getWallet().cleanup();
                                     walletInfo.put(BitcoinModel.WALLET_CLEANED_OF_SPAM, Boolean.TRUE.toString());
                                     bitcoinController.getFileHandler().savePerWalletModelData(perWalletModelData, false);
                                     log.debug("done.");

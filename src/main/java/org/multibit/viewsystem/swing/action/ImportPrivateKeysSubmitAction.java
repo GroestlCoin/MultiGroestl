@@ -15,11 +15,7 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.Utils;
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterException;
+
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.file.*;
@@ -37,14 +33,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.crypto.params.KeyParameter;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.ECKey;
 import com.google.groestlcoin.core.Utils;
 import com.google.groestlcoin.core.Wallet;
 import com.google.groestlcoin.crypto.KeyCrypter;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 import com.piuk.blockchain.MyWallet;
-=======
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -53,7 +49,6 @@ import java.io.IOException;
 import java.nio.CharBuffer;
 import java.util.*;
 import java.util.List;
->>>>>>> original_multibit/master
 
 /**
  * This {@link Action} imports the private keys to the active wallet.

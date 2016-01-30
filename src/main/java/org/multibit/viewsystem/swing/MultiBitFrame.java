@@ -15,19 +15,13 @@
  */
 package org.multibit.viewsystem.swing;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.ECKey;
 import com.google.groestlcoin.core.Sha256Hash;
 import com.google.groestlcoin.core.Transaction;
 import com.google.groestlcoin.core.Wallet;
-=======
-import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.Sha256Hash;
-import com.google.bitcoin.core.Transaction;
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.script.Script;
->>>>>>> original_multibit/master
-import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
+import com.google.groestlcoin.script.Script;
+import org.bitcoinj.wallet.Protos;
 import org.joda.money.Money;
 import org.multibit.ApplicationDataDirectoryLocator;
 import org.multibit.Localiser;
@@ -79,11 +73,11 @@ import java.awt.event.*;
 import java.awt.font.TextAttribute;
 import java.math.BigInteger;
 import java.util.List;
-<<<<<<< HEAD
+
 import java.util.Properties;
-=======
+
 import java.util.Map;
->>>>>>> original_multibit/master
+
 import java.util.Timer;
 
 
@@ -167,95 +161,12 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
    */
   private final GenericApplication application;
 
-<<<<<<< HEAD
-        @Override
-        public void performQuit() {
-            log.debug("Performed Quit");
-        }
-    };
-    
-    final private GenericQuitEventListener quitEventListener;
-
-    /**
-     * the tabbed pane containing the views
-     * 
-     */
-    private MultiBitTabbedPane viewTabbedPane;
-
-    public Logger logger = LoggerFactory.getLogger(MultiBitFrame.class.getName());
-
-    private ViewFactory viewFactory;
-
-    private Timer fileChangeTimer;
-    private HealthCheckTimerTask healthCheckTimerTask;
-
-    private Timer tickerTimer1;
-    private Timer tickerTimer2;
-    private TickerTimerTask tickerTimerTask1;
-    private TickerTimerTask tickerTimerTask2;
-
-    private JPanel headerPanel;
-
-    private TickerTablePanel tickerTablePanel;
-    
-    private MultiBitWalletBusyAction addPasswordAction;
-    private MultiBitWalletBusyAction changePasswordAction;
-    private MultiBitWalletBusyAction removePasswordAction;
-    
-    private MultiBitWalletBusyAction signMessageAction;
-    
-    private MultiBitWalletBusyAction showImportPrivateKeysAction;
-    private MultiBitWalletBusyAction showExportPrivateKeysAction;
-    private MultiBitWalletBusyAction resetTransactionsAction;
- 
-    /**
-     * For events coming from Peers condense the events into regular updates.
-     * This is to prevent the UI thrashing with hundreds of events per second.
-     */
-    public static final int FIRE_DATA_CHANGED_UPDATE_LATER_DELAY_TIME = 1000; // milliseconds
- 
-    /**
-     * Timer used to condense multiple updates
-     */
-    private static Timer fireDataChangedTimer;
-
-    private static FireDataChangedTimerTask fireDataChangedTimerTask;
-
-    private TrayIcon trayIcon;
-    private SystemTray tray;
-    private int stateBeforeMinimize;
-    public boolean allowMinimizeToTray;
-
-    private Properties userPreferences;
-
-    @SuppressWarnings("deprecation")
-    public MultiBitFrame(CoreController coreController, BitcoinController bitcoinController, ExchangeController exchangeController, GenericApplication application, View initialView) {
-        this.coreController = coreController;
-        this.bitcoinController = bitcoinController;
-        this.exchangeController = exchangeController;
-        this.controller = this.coreController;
-        
-        this.quitEventListener = this.coreController;
-        
-        this.localiser = controller.getLocaliser();
-        this.application = application;
-        
-        // Remap to command v and C on a Mac
-        if (application != null && application.isMac()) {
-            InputMap im = (InputMap) UIManager.get("TextField.focusInputMap");
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.META_DOWN_MASK), DefaultEditorKit.copyAction);
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, KeyEvent.META_DOWN_MASK), DefaultEditorKit.pasteAction);
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_X, KeyEvent.META_DOWN_MASK), DefaultEditorKit.cutAction);
-        }
-        
-        ColorAndFontConstants.init();
-=======
   private final GenericQuitResponse multiBitFrameQuitResponse = new GenericQuitResponse() {
     @Override
     public void cancelQuit() {
       log.debug("Quit Canceled");
     }
->>>>>>> original_multibit/master
+
 
     @Override
     public void performQuit() {
@@ -277,20 +188,12 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
   private Timer fileChangeTimer;
   private HealthCheckTimerTask healthCheckTimerTask;
 
-<<<<<<< HEAD
-        ApplicationDataDirectoryLocator applicationDataDirectoryLocator = new ApplicationDataDirectoryLocator();
-        userPreferences = bitcoinController.getModel().getAllUserPreferences();
 
-        if (SystemTray.isSupported())
-            setupTray();
-
-        boolean wasInTray = sizeAndCenter();
-=======
   private Timer tickerTimer1;
   private Timer tickerTimer2;
   private TickerTimerTask tickerTimerTask1;
   private TickerTimerTask tickerTimerTask2;
->>>>>>> original_multibit/master
+
 
   private JPanel headerPanel;
 
@@ -329,18 +232,10 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
 
     this.quitEventListener = this.coreController;
 
-<<<<<<< HEAD
-        if (!wasInTray)
-            setVisible(true);
-        
-        fireDataChangedTimerTask = new FireDataChangedTimerTask(this);
-        fireDataChangedTimer = new Timer();
-        fireDataChangedTimer.scheduleAtFixedRate(fireDataChangedTimerTask, FIRE_DATA_CHANGED_UPDATE_LATER_DELAY_TIME, FIRE_DATA_CHANGED_UPDATE_LATER_DELAY_TIME);
-    }
-=======
+
     this.localiser = controller.getLocaliser();
     this.application = application;
->>>>>>> original_multibit/master
+
 
     // Remap to command v and C on a Mac
     if (application != null && application.isMac()) {
@@ -350,209 +245,7 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
       im.put(KeyStroke.getKeyStroke(KeyEvent.VK_X, KeyEvent.META_DOWN_MASK), DefaultEditorKit.cutAction);
     }
 
-<<<<<<< HEAD
-    private void setupTray() {
-        allowMinimizeToTray = Boolean.TRUE.toString().equals(userPreferences.getProperty(CoreModel.MINIMIZE_TO_TRAY, "false"));
 
-        Image trayIconIcon = new ImageIcon(this.getClass().getResource("/images/multigroestl64.png")).getImage();
-        trayIcon = new TrayIcon(trayIconIcon, "MultiGroestl");
-        trayIcon.setImageAutoSize(true);
-        trayIcon.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1)
-                {
-                    setTray(false);
-                    setState(stateBeforeMinimize);
-                }
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {}
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-            @Override
-            public void mouseEntered(MouseEvent e) {}
-            @Override
-            public void mouseExited(MouseEvent e) {}
-        });
-
-        tray = SystemTray.getSystemTray();
-
-        addWindowListener(new WindowListener() {
-            @Override
-            public void windowIconified(WindowEvent e) {
-                stateBeforeMinimize = e.getOldState();
-                setTray(true);
-            }
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-    }
-
-    public boolean isInTray() {
-        if (tray == null)
-            return false;
-        return tray.getTrayIcons().length > 0;
-    }
-
-    private void setTray(boolean isTray) {
-        if (isTray) {
-            if (allowMinimizeToTray)
-                try {
-                    tray.add(trayIcon);
-                    setVisible(false);
-                } catch (AWTException e1) {
-                    log.debug("Couldn't add tray icon");
-                }
-        } else {
-            tray.remove(trayIcon);
-            setVisible(true);
-        }
-
-        // Save window states for next start.
-        userPreferences.setProperty(CoreModel.PREVIOUS_WINDOW_TRAY, String.valueOf(isTray));
-        userPreferences.setProperty(CoreModel.PREVIOUS_WINDOW_MAX, String.valueOf(getExtendedState()));
-        FileHandler.writeUserPreferences(bitcoinController);
-    }
-
-    private boolean sizeAndCenter() {
-        // Get the screen size as a java dimension.
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        int height = (int) (screenSize.height * PROPORTION_OF_VERTICAL_SCREEN_TO_FILL);
-        int width = (int) (screenSize.width * PROPORTION_OF_HORIZONTAL_SCREEN_TO_FILL);
-        double startVerticalPositionRatio = (1 - PROPORTION_OF_VERTICAL_SCREEN_TO_FILL) / 2;
-        double startHorizontalPositionRatio = (1 - PROPORTION_OF_HORIZONTAL_SCREEN_TO_FILL) / 2;
-        int x = (int) (width * startHorizontalPositionRatio);
-        int y = (int) (height * startVerticalPositionRatio);
-
-        // Try loading the previous window state from the user preferences
-        int savedWidth = Integer.parseInt(userPreferences.getProperty(CoreModel.PREVIOUS_WINDOW_SIZE_W, String.valueOf(width)));
-        int savedHeight = Integer.parseInt(userPreferences.getProperty(CoreModel.PREVIOUS_WINDOW_SIZE_H, String.valueOf(height)));
-        int savedX = Integer.parseInt(userPreferences.getProperty(CoreModel.PREVIOUS_WINDOW_POS_X, String.valueOf(x)));
-        int savedY = Integer.parseInt(userPreferences.getProperty(CoreModel.PREVIOUS_WINDOW_POS_Y, String.valueOf(y)));
-        int previousState = Integer.parseInt(userPreferences.getProperty(CoreModel.PREVIOUS_WINDOW_MAX, "0"));
-        boolean previousTray = Boolean.TRUE.toString().equals(userPreferences.getProperty(CoreModel.PREVIOUS_WINDOW_TRAY, "false"));
-
-        if ((previousState & Frame.MAXIMIZED_BOTH) != 0)
-        {
-            setExtendedState(Frame.MAXIMIZED_BOTH);
-        } else {
-            // Set the jframe height and width.
-            setPreferredSize(new Dimension(savedWidth, savedHeight));
-            setLocation(savedX, savedY);
-            if ((previousState & Frame.ICONIFIED) != 0) {
-                setExtendedState(Frame.ICONIFIED);
-                if (previousTray && tray != null && trayIcon != null)
-                {
-                    try {
-                        tray.add(trayIcon);
-                        setVisible(false);
-                    } catch (AWTException e) {
-                        log.debug("Couldn't add to tray after startup.");
-                    }
-                }
-            }
-        }
-        return previousTray;
-    }
-
-    private void initUI(View initialView) {
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new GridBagLayout());
-        contentPane.setBackground(ColorAndFontConstants.VERY_LIGHT_BACKGROUND_COLOR);
-        GridBagConstraints constraints = new GridBagConstraints();
-        GridBagConstraints constraints2 = new GridBagConstraints();
-
-        // Set the application icon.
-        ImageIcon imageIcon = ImageLoader.createImageIcon(ImageLoader.MULTIBIT_ICON_FILE);
-        if (imageIcon != null) {
-            setIconImage(imageIcon.getImage());
-        }
-
-        headerPanel = new JPanel();
-        headerPanel.setOpaque(true);
-        headerPanel.setBackground(ColorAndFontConstants.BACKGROUND_COLOR);
-        headerPanel.setLayout(new GridBagLayout());
-        headerPanel.applyComponentOrientation(ComponentOrientation.getOrientation(controller.getLocaliser().getLocale()));
-
-        JPanel balancePanel = createBalancePanel();
-        constraints2.fill = GridBagConstraints.BOTH;
-        constraints2.gridx = 0;
-        constraints2.gridy = 0;
-        constraints2.gridwidth = 1;
-        constraints2.gridheight = 1;
-        constraints2.weightx = 1.0;
-        constraints2.weighty = 1.0;
-        constraints2.anchor = GridBagConstraints.LINE_START;
-
-        headerPanel.add(balancePanel, constraints2);
-
-        addMenuBar(constraints, contentPane);
-
-        constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridwidth = 2;
-        constraints.weightx = 1.0;
-        constraints.weighty = 1.0;
-        constraints.anchor = GridBagConstraints.LINE_START;
-        contentPane.add(headerPanel, constraints);
-
-        // Create the wallet list panel.
-        walletsView = new WalletListPanel(this.bitcoinController, this);
-
-        // Create the tabbedpane that holds the views.
-        viewTabbedPane = new MultiBitTabbedPane(controller);
-        viewTabbedPane.setBackground(ColorAndFontConstants.VERY_LIGHT_BACKGROUND_COLOR);
-
-        // Add the send groestlcoin tab.
-        JPanel sendBitcoinOutlinePanel = new JPanel(new BorderLayout());
-        Viewable sendBitcoinView = viewFactory.getView(View.SEND_BITCOIN_VIEW);
-        sendBitcoinOutlinePanel.add((JPanel) sendBitcoinView, BorderLayout.CENTER);
-        viewTabbedPane.addTab(sendBitcoinView.getViewTitle(), sendBitcoinView.getViewIcon(), sendBitcoinView.getViewTooltip(),
-                sendBitcoinOutlinePanel);
-
-        // Add the receive groestlcoin tab.
-        JPanel receiveBitcoinOutlinePanel = new JPanel(new BorderLayout());
-        Viewable receiveBitcoinView = viewFactory.getView(View.RECEIVE_BITCOIN_VIEW);
-        receiveBitcoinOutlinePanel.add((JPanel) receiveBitcoinView, BorderLayout.CENTER);
-        viewTabbedPane.addTab(receiveBitcoinView.getViewTitle(), receiveBitcoinView.getViewIcon(),
-                receiveBitcoinView.getViewTooltip(), receiveBitcoinOutlinePanel);
-
-        // Add the transactions tab.
-        JPanel transactionsOutlinePanel = new JPanel(new BorderLayout());
-        Viewable transactionsView = viewFactory.getView(View.TRANSACTIONS_VIEW);
-        transactionsOutlinePanel.add((JPanel) transactionsView, BorderLayout.CENTER);
-        viewTabbedPane.addTab(transactionsView.getViewTitle(), transactionsView.getViewIcon(), transactionsView.getViewTooltip(),
-                transactionsOutlinePanel);
-        
-        if (initialView == View.SEND_BITCOIN_VIEW) {
-            viewTabbedPane.setSelectedIndex(0);
-        } else if (initialView == View.RECEIVE_BITCOIN_VIEW) {
-            viewTabbedPane.setSelectedIndex(1);
-        } else if (initialView == View.TRANSACTIONS_VIEW) {
-            viewTabbedPane.setSelectedIndex(2);
-        } 
-
-        // Create a split pane with the two scroll panes in it.
-        if (ComponentOrientation.LEFT_TO_RIGHT == ComponentOrientation.getOrientation(controller.getLocaliser().getLocale())) {
-            splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, walletsView, viewTabbedPane);
-        } else {
-            splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, viewTabbedPane, walletsView);
-            splitPane.setResizeWeight(1.0);
-        }
-=======
     ColorAndFontConstants.init();
 
     FontSizer.INSTANCE.initialise(controller);
@@ -560,7 +253,7 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
 
     setCursor(Cursor.WAIT_CURSOR);
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
->>>>>>> original_multibit/master
+
 
     String titleText = localiser.getString("multiBitFrame.title");
     if (this.bitcoinController.getModel().getActiveWallet() != null) {
@@ -582,75 +275,9 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
 
     sizeAndCenter();
 
-<<<<<<< HEAD
-        // View Transactions action.
-        MultiBitAction showTransactionsAction = new MultiBitAction(controller, ImageLoader.TRANSACTIONS_ICON_FILE,
-                "showTransactionsAction.text", "showTransactionsAction.tooltip", "showTransactionsAction.mnemonic",
-                View.TRANSACTIONS_VIEW);
-        showTransactionsAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("showTransactionsAction.tooltip")));
 
-        menuItem = new JMenuItem(showTransactionsAction);
-        menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
-        menuItem.setComponentOrientation(componentOrientation);
-        viewMenu.add(menuItem);
-
-        // View Charts action.
-        MultiBitAction showChartsAction = new MultiBitAction(controller, ImageLoader.CHART_LINE_ICON_FILE,
-                "chartsPanelAction.text", "chartsPanelAction.tooltip", "chartsPanelAction.mnemonic",
-                View.CHARTS_VIEW);
-        showChartsAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("chartsPanelAction.tooltip")));
-
-        menuItem = new JMenuItem(showChartsAction);
-        menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
-        menuItem.setComponentOrientation(componentOrientation);
-        viewMenu.add(menuItem);
-
-        // Show messages action.
-        MultiBitAction showMessagesAction = new MultiBitAction(controller, ImageLoader.MESSAGES_ICON_FILE, "messagesPanel.text",
-                "messagesPanel.tooltip", "messagesPanel.mnemonic", View.MESSAGES_VIEW);
-        showMessagesAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("messagesPanel.tooltip")));
-
-        menuItem = new JMenuItem(showMessagesAction);
-        menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
-        menuItem.setComponentOrientation(componentOrientation);
-        viewMenu.add(menuItem);
-
-        // Send groestlcoin action.
-        MultiBitAction sendBitcoinAction = new MultiBitAction(controller, ImageLoader.SEND_BITCOIN_ICON_FILE,
-                "sendBitcoinAction.text", "sendBitcoinAction.tooltip", "sendBitcoinAction.mnemonic", View.SEND_BITCOIN_VIEW);
-        sendBitcoinAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("sendBitcoinAction.tooltip")));
-
-        menuItem = new JMenuItem(sendBitcoinAction);
-        menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
-        menuItem.setComponentOrientation(componentOrientation);
-        tradeMenu.add(menuItem);
-
-        MultiBitAction receiveBitcoinAction = new MultiBitAction(controller, ImageLoader.RECEIVE_BITCOIN_ICON_FILE,
-                "receiveBitcoinAction.text", "receiveBitcoinAction.tooltip", "receiveBitcoinAction.mnemonic",
-                View.RECEIVE_BITCOIN_VIEW);
-        receiveBitcoinAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("receiveBitcoinAction.tooltip")));
-
-        menuItem = new JMenuItem(receiveBitcoinAction);
-        menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
-        menuItem.setComponentOrientation(componentOrientation);
-        tradeMenu.add(menuItem);
-
-        // Show preferences.
-        if (application != null && !application.isMac()) {
-            // Non Macs have a Preferences menu item.
-            MultiBitAction showPreferencesAction = new MultiBitAction(controller, ImageLoader.PREFERENCES_ICON_FILE,
-                    "showPreferencesAction.text", "showPreferencesAction.tooltip", "showPreferencesAction.mnemonic",
-                    View.PREFERENCES_VIEW);
-            showPreferencesAction.putValue(Action.SHORT_DESCRIPTION, HelpContentsPanel.createTooltipTextForMenuItem(controller.getLocaliser().getString("showPreferencesAction.tooltip")));
-
-            menuItem = new JMenuItem(showPreferencesAction);
-            menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
-            menuItem.setComponentOrientation(componentOrientation);
-            viewMenu.add(menuItem);
-        }
-=======
     viewFactory = new ViewFactory(this.bitcoinController, this.exchangeController, this);
->>>>>>> original_multibit/master
+
 
     initUI(initialView);
 
@@ -1725,10 +1352,10 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
       updateMenuItemsOnWalletChange();
     } else {
       SwingUtilities.invokeLater(new Runnable() {
-        @Override
-        public void run() {
-          updateMenuItemsOnWalletChange();
-        }
+          @Override
+          public void run() {
+              updateMenuItemsOnWalletChange();
+          }
       });
     }
   }
@@ -1751,7 +1378,7 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
         changePasswordAction.setEnabled(false);
         removePasswordAction.setEnabled(false);
       } else {
-        if (this.bitcoinController.getModel().getActiveWallet().getEncryptionType() == EncryptionType.ENCRYPTED_SCRYPT_AES) {
+        if (this.bitcoinController.getModel().getActiveWallet().getEncryptionType() == Protos.Wallet.EncryptionType.ENCRYPTED_SCRYPT_AES) {
           addPasswordAction.setEnabled(false);
           changePasswordAction.setEnabled(true);
           removePasswordAction.setEnabled(true);
@@ -1857,10 +1484,10 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
       fireDataChangedOnSwingThread(displayHint);
     } else {
       SwingUtilities.invokeLater(new Runnable() {
-        @Override
-        public void run() {
-          fireDataChangedOnSwingThread(displayHint);
-        }
+          @Override
+          public void run() {
+              fireDataChangedOnSwingThread(displayHint);
+          }
       });
     }
   }
@@ -1933,9 +1560,9 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
       updateHeaderOnSwingThread(finalEstimatedBalance, finalAvailableToSpend, isBusy, null, -1);
     } else {
       SwingUtilities.invokeLater(new Runnable() {
-        public void run() {
-          updateHeaderOnSwingThread(finalEstimatedBalance, finalAvailableToSpend, isBusy, null, -1);
-        }
+          public void run() {
+              updateHeaderOnSwingThread(finalEstimatedBalance, finalAvailableToSpend, isBusy, null, -1);
+          }
       });
     }
   }
@@ -2075,11 +1702,11 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
 
   public void bringToFront() {
     java.awt.EventQueue.invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        toFront();
-        repaint();
-      }
+        @Override
+        public void run() {
+            toFront();
+            repaint();
+        }
     });
   }
 
@@ -2183,8 +1810,5 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
   public void onKeysAdded(Wallet wallet, List<ECKey> keys) {
   }
 
-  @Override
-  public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
 
-  }
 }

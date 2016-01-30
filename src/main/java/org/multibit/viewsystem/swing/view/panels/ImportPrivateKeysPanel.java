@@ -15,7 +15,7 @@
  */
 package org.multibit.viewsystem.swing.view.panels;
 
-import com.google.bitcoin.crypto.KeyCrypterException;
+
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -35,7 +35,7 @@ import org.multibit.viewsystem.swing.MultiBitFrame;
 import org.multibit.viewsystem.swing.action.HelpContextAction;
 import org.multibit.viewsystem.swing.action.ImportPrivateKeysSubmitAction;
 import org.multibit.viewsystem.swing.view.PrivateKeyFileFilter;
-<<<<<<< HEAD
+
 import org.multibit.viewsystem.swing.view.components.FontSizer;
 import org.multibit.viewsystem.swing.view.components.HelpButton;
 import org.multibit.viewsystem.swing.view.components.MultiBitButton;
@@ -45,9 +45,9 @@ import org.multibit.viewsystem.swing.view.components.MultiBitTitledPanel;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
-=======
+
 import org.multibit.viewsystem.swing.view.components.*;
->>>>>>> original_multibit/master
+
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -844,13 +844,7 @@ public class ImportPrivateKeysPanel extends JPanel implements Viewable, WalletBu
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         fileChooser.addChoosableFileFilter(multiBitFileChooser);
-<<<<<<< HEAD
-//        fileChooser.addChoosableFileFilter(myWalletPlainFileChooser);
-//        fileChooser.addChoosableFileFilter(myWalletEncryptedFileChooser);
-=======
-        //fileChooser.addChoosableFileFilter(myWalletPlainFileChooser);
-        //fileChooser.addChoosableFileFilter(myWalletEncryptedFileChooser);
->>>>>>> original_multibit/master
+
 
         fileChooser.setAcceptAllFileFilterUsed(false);
 

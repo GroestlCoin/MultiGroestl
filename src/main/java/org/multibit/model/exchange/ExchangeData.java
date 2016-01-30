@@ -15,7 +15,6 @@
  */
 package org.multibit.model.exchange;
 
-import com.xeiam.xchange.bitcoinaverage.BitcoinAverageExchange;
 import com.xeiam.xchange.bitstamp.BitstampExchange;
 import com.xeiam.xchange.btce.v3.BTCEExchange;
 import com.xeiam.xchange.campbx.CampBXExchange;
@@ -49,11 +48,9 @@ public class ExchangeData {
     public static final String CRYPTSY_EXCHANGE_NAME = "Poloniex";
     public static final String BITCOINAVERAGE_EXCHANGE_NAME = "BitcoinAverage";
 
-<<<<<<< HEAD
+
     public static final String DEFAULT_EXCHANGE = CRYPTSY_EXCHANGE_NAME;
-=======
-    public static final String DEFAULT_EXCHANGE = BITSTAMP_EXCHANGE_NAME;
->>>>>>> original_multibit/master
+
     
     public static final String DEFAULT_CURRENCY = "USD";
     
@@ -138,7 +135,7 @@ public class ExchangeData {
    * MTGOX has now been removed - any references to it get mapped to BITSTAMP
    */
     public static String[] getAvailableExchanges() {
-<<<<<<< HEAD
+
 /*        return new String[] { MT_GOX_EXCHANGE_NAME,
             BITSTAMP_EXCHANGE_NAME,
 =======
@@ -179,8 +176,8 @@ public class ExchangeData {
             return  OERExchange.class.getName();
         } else if (VIRTEX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
             return  VirtExExchange.class.getName();
-        } else if (BITCOINAVERAGE_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName) || CRYPTSY_EXCHANGE_NAME.equals(shortExchangeName)) {
-            return BitcoinAverageExchange.class.getName();
+        //} else if (BITCOINAVERAGE_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName) || CRYPTSY_EXCHANGE_NAME.equals(shortExchangeName)) {
+            //return BitcoinAverageExchange.class.getName();
         } else {
             // Unidentified exchange.
             return null;

@@ -15,7 +15,6 @@
  */
 package org.multibit.file;
 
-<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -39,19 +38,14 @@ import java.util.TimeZone;
 import com.google.groestlcoin.crypto.KeyCrypter;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 
-=======
-import com.google.bitcoin.core.*;
-import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterException;
-import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
->>>>>>> original_multibit/master
+
+
 import org.multibit.crypto.KeyCrypterOpenSSL;
 import org.multibit.utils.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.crypto.params.KeyParameter;
 
-<<<<<<< HEAD
 import com.google.groestlcoin.core.AddressFormatException;
 import com.google.groestlcoin.core.Block;
 import com.google.groestlcoin.core.BlockChain;
@@ -67,12 +61,7 @@ import com.google.groestlcoin.core.Utils;
 import com.google.groestlcoin.core.Wallet;
 
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
-=======
-import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
->>>>>>> original_multibit/master
+
 
 /**
  * Class for handling reading and writing of private keys to a file.

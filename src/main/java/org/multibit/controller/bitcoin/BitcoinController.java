@@ -15,16 +15,13 @@
  */
 package org.multibit.controller.bitcoin;
 
-<<<<<<< HEAD
+import com.google.groestlcoin.script.Script;
+import org.multibit.controller.core.CoreController;
+
+
 import com.google.groestlcoin.core.*;
 import com.google.groestlcoin.uri.BitcoinURI;
 import com.google.groestlcoin.uri.BitcoinURIParseException;
-=======
-import com.google.bitcoin.core.*;
-import com.google.bitcoin.script.Script;
-import com.google.bitcoin.uri.BitcoinURI;
-import com.google.bitcoin.uri.BitcoinURIParseException;
->>>>>>> original_multibit/master
 import org.multibit.controller.AbstractController;
 import org.multibit.controller.AbstractEventHandler;
 import org.multibit.controller.core.CoreController;
@@ -229,11 +226,6 @@ public class BitcoinController extends AbstractController<CoreController> implem
         log.debug("Keys added : " + keys.toString());
     }
 
-  @Override
-  public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
-    log.debug("Scripts added : " + scripts.toString());
-
-  }
 
   @Override
     public void onReorganize(Wallet wallet) {

@@ -15,8 +15,7 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.crypto.KeyCrypterException;
+
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.file.BackupManager;
 import org.multibit.file.FileHandler;
@@ -29,14 +28,14 @@ import org.multibit.viewsystem.swing.view.panels.RemovePasswordPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.Wallet;
 import com.google.groestlcoin.crypto.KeyCrypterException;
-=======
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.nio.CharBuffer;
->>>>>>> original_multibit/master
+
 
 /**
  * This {@link Action} action removes the encryption of private keys in a wallet.

@@ -300,7 +300,7 @@ public class OpenWalletAction extends AbstractAction {
                     // so that user can manually clean a wallet by closing it and then reopening it)
                     WalletInfoData walletInfo = perWalletModelData.getWalletInfo();
                     log.debug("Cleaning wallet '" + selectedWalletFilenameFinal + "' of spam ...");
-                    perWalletModelData.getWallet().cleanup();
+                    //perWalletModelData.getWallet().cleanup();
                     walletInfo.put(BitcoinModel.WALLET_CLEANED_OF_SPAM, Boolean.TRUE.toString());
                     bitcoinController.getFileHandler().savePerWalletModelData(perWalletModelData, false);
                     log.debug("done.");

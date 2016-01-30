@@ -17,15 +17,10 @@ package org.multibit.file;
 
 
 
-<<<<<<< HEAD
 import com.google.groestlcoin.core.ECKey;
 import com.google.groestlcoin.core.NetworkParameters;
 import com.google.groestlcoin.core.Wallet;
 import com.piuk.blockchain.MyWallet;
-=======
-import com.google.bitcoin.core.NetworkParameters;
-import com.google.bitcoin.core.Wallet;
->>>>>>> original_multibit/master
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.multibit.Constants;

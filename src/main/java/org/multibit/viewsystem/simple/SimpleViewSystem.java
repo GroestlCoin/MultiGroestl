@@ -1,24 +1,22 @@
 package org.multibit.viewsystem.simple;
 
-import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.Transaction;
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.script.Script;
+
+import com.google.groestlcoin.script.Script;
 import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.core.StatusEnum;
 import org.multibit.viewsystem.DisplayHint;
 import org.multibit.viewsystem.View;
 import org.multibit.viewsystem.ViewSystem;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.ECKey;
 import com.google.groestlcoin.core.Transaction;
 import com.google.groestlcoin.core.Wallet;
 import org.multibit.viewsystem.View;
-=======
+
 import java.math.BigInteger;
 import java.util.List;
->>>>>>> original_multibit/master
+
 
 /**
  * A very simple implementation of a view system.
@@ -111,8 +109,5 @@ public class SimpleViewSystem implements ViewSystem {
     public void onKeysAdded(Wallet wallet, List<ECKey> keys) { 
     }
 
-  @Override
-  public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
-    System.out.println("SIMPLE. onScriptsAdded");
-  }
+
 }

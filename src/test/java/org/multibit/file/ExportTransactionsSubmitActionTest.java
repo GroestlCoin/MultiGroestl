@@ -15,7 +15,6 @@
  */
 package org.multibit.file;
 
-import com.google.bitcoin.core.Wallet;
 import com.googlecode.jcsv.CSVStrategy;
 import com.googlecode.jcsv.writer.CSVColumnJoiner;
 import com.googlecode.jcsv.writer.internal.CSVColumnJoinerImpl;
@@ -29,14 +28,12 @@ import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.exchange.ExchangeModel;
 import org.multibit.viewsystem.swing.action.ExportTransactionsSubmitAction;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.Wallet;
-=======
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
->>>>>>> original_multibit/master
 
 public class ExportTransactionsSubmitActionTest extends TestCase {
     public static final String WALLETS_TESTDATA_DIRECTORY = "wallets";

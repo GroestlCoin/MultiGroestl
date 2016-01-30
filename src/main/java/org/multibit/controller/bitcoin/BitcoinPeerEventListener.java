@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Set;
 
 public class BitcoinPeerEventListener implements PeerEventListener {
 
@@ -86,8 +87,9 @@ public class BitcoinPeerEventListener implements PeerEventListener {
             if (loopWallet != null) {
               if (loopWallet.isTransactionRelevant(transaction)) {
                 if (!(transaction.isTimeLocked()
-                        && transaction.getConfidence().getSource() != TransactionConfidence.Source.SELF)
-                        && loopWallet.isTransactionRisky(transaction, null)) {
+                        && transaction.getConfidence().getSource() != TransactionConfidence.Source.SELF))
+                        //&& loopWallet.isTransactionRisky(transaction, null)) {
+                {
                   if (loopWallet.getTransaction(transaction.getHash()) == null) {
                     log.debug("MultiBit adding a new pending transaction for the wallet '"
                             + perWalletModelData.getWalletDescription() + "'\n" + transaction.toString());

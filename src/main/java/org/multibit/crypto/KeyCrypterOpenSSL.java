@@ -15,8 +15,6 @@
  */
 package org.multibit.crypto;
 
-import com.google.bitcoin.core.Utils;
-import com.google.bitcoin.crypto.KeyCrypterException;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,15 +27,13 @@ import org.spongycastle.crypto.modes.CBCBlockCipher;
 import org.spongycastle.crypto.paddings.PaddedBufferedBlockCipher;
 import org.spongycastle.crypto.params.ParametersWithIV;
 
-<<<<<<< HEAD
 import com.google.groestlcoin.core.Utils;
 import com.google.groestlcoin.crypto.KeyCrypterException;
-import com.google.common.base.Preconditions;
-=======
+
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 import java.util.Arrays;
->>>>>>> original_multibit/master
+
 
 /**
  * This class encrypts and decrypts a string in a manner that is compatible with

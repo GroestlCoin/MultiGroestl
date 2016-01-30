@@ -15,27 +15,17 @@
  */
 package org.multibit.network;
 
-<<<<<<< HEAD
 import com.google.groestlcoin.core.MultiBitBlockChain;
+import com.google.groestlcoin.discovery.DnsDiscovery;
+import org.bitcoinj.wallet.Protos;
+import org.multibit.model.bitcoin.WalletData;
 import com.google.groestlcoin.core.*;
 import com.google.groestlcoin.core.Wallet.SendRequest;
 import com.google.groestlcoin.crypto.KeyCrypterException;
-import com.google.groestlcoin.discovery.DnsDiscovery;
 import com.google.groestlcoin.store.BlockStore;
 import com.google.groestlcoin.store.BlockStoreException;
 import com.google.groestlcoin.store.SPVBlockStore;
-=======
-import com.google.bitcoin.core.*;
-import com.google.bitcoin.core.Wallet.SendRequest;
-import com.google.bitcoin.crypto.KeyCrypterException;
-import com.google.bitcoin.net.discovery.DnsDiscovery;
-import com.google.bitcoin.net.discovery.IrcDiscovery;
-import com.google.bitcoin.store.BlockStore;
-import com.google.bitcoin.store.BlockStoreException;
-import com.google.bitcoin.store.SPVBlockStore;
->>>>>>> original_multibit/master
 import com.google.common.util.concurrent.ListenableFuture;
-import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.multibit.ApplicationDataDirectoryLocator;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -45,7 +35,6 @@ import org.multibit.file.WalletSaveException;
 import org.multibit.message.Message;
 import org.multibit.message.MessageManager;
 import org.multibit.model.bitcoin.BitcoinModel;
-import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.bitcoin.WalletInfoData;
 import org.multibit.model.core.CoreModel;
 import org.multibit.model.core.StatusEnum;
@@ -383,7 +372,8 @@ public class MultiBitService {
 
   public void recalculateFastCatchupAndFilter() {
     if (peerGroup != null) {
-      peerGroup.recalculateFastCatchupAndFilter(PeerGroup.FilterRecalculateMode.FORCE_SEND);
+      //TODO: Find out what this is
+      //peerGroup.recalculateFastCatchupAndFilter(PeerGroup.FilterRecalculateMode.FORCE_SEND);
     }
   }
 
@@ -592,21 +582,13 @@ public class MultiBitService {
         log.debug("Ping: {}", peer.getAddress().toString());
 
         try {
-<<<<<<< HEAD
-=======
 
->>>>>>> original_multibit/master
           ListenableFuture<Long> result = peer.ping();
           result.get(4, TimeUnit.SECONDS);
           atLeastOnePingWorked = true;
           break;
         } catch (ProtocolException | InterruptedException | ExecutionException | TimeoutException e) {
           log.warn("Peer '" + peer.getAddress().toString() + "' failed ping test. Message was " + e.getMessage());
-<<<<<<< HEAD
-        } catch (TimeoutException e) {
-          log.warn("Peer '" + peer.getAddress().toString() + "' failed ping test. Message was " + e.getMessage());
-=======
->>>>>>> original_multibit/master
         }
       }
     }
@@ -619,7 +601,7 @@ public class MultiBitService {
 
     log.debug("MultiBitService#sendCoins - Just about to send coins");
     KeyParameter aesKey = null;
-    if (perWalletModelData.getWallet().getEncryptionType() != EncryptionType.UNENCRYPTED) {
+    if (perWalletModelData.getWallet().getEncryptionType() != Protos.Wallet.EncryptionType.UNENCRYPTED) {
       aesKey = perWalletModelData.getWallet().getKeyCrypter().deriveKey(password);
     }
     sendRequest.aesKey = aesKey;

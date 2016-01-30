@@ -15,12 +15,12 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.bitcoin.core.Address;
-import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.NetworkParameters;
-import com.google.bitcoin.core.Wallet;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.groestlcoin.core.Address;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.NetworkParameters;
+import com.google.groestlcoin.core.Wallet;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.message.Message;
 import org.multibit.message.MessageManager;

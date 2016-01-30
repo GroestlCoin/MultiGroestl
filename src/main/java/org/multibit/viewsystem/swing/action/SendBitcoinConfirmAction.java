@@ -15,18 +15,10 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-<<<<<<< HEAD
-import com.google.groestlcoin.core.Address;
-import com.google.groestlcoin.core.AddressFormatException;
-import com.google.groestlcoin.core.Utils;
+
+import com.google.groestlcoin.core.*;
 import com.google.groestlcoin.core.Wallet.SendRequest;
-import com.google.groestlcoin.core.WrongNetworkException;
 import com.google.groestlcoin.crypto.KeyCrypterException;
-=======
-import com.google.bitcoin.core.*;
-import com.google.bitcoin.core.Wallet.SendRequest;
-import com.google.bitcoin.crypto.KeyCrypterException;
->>>>>>> original_multibit/master
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.message.Message;
 import org.multibit.message.MessageManager;
@@ -110,7 +102,7 @@ public class SendBitcoinConfirmAction extends MultiBitSubmitAction {
                     bitcoinController.getModel().getActiveWallet().completeTx(sendRequest, false);
                   completedOk = true;
                   log.debug("The fee after completing the transaction was " + sendRequest.fee);
-                } catch (InsufficientMoneyException ime) {
+                } catch (Exception ime) {
                   completedOk = false;
                 }
                 if (completedOk) {

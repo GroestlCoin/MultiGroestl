@@ -285,7 +285,7 @@ public class MultiBitBlockChainTest {
         try {
             coinbaseSpend = wallet.createSend(addressToSendTo, Utils.toNanoCoins(49, 0));
             fail();
-        } catch (InsufficientMoneyException e) {
+        } catch (Exception e) {
         }
 
         // Check that the coinbase is unavailable to spend for the next spendableCoinbaseDepth - 2 blocks.
@@ -308,7 +308,7 @@ public class MultiBitBlockChainTest {
             try {
               coinbaseSpend = wallet.createSend(addressToSendTo, Utils.toNanoCoins(49, 0));
               fail();
-            } catch (InsufficientMoneyException e) {
+            } catch (Exception e) {
           }
         }
 

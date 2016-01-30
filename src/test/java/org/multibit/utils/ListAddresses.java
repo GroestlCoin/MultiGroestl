@@ -1,8 +1,8 @@
 package org.multibit.utils;
 
-import com.google.bitcoin.core.ECKey;
-import com.google.bitcoin.core.NetworkParameters;
-import com.google.bitcoin.core.Wallet;
+import com.google.groestlcoin.core.ECKey;
+import com.google.groestlcoin.core.NetworkParameters;
+import com.google.groestlcoin.core.Wallet;
 import org.multibit.ApplicationDataDirectoryLocator;
 import org.multibit.CreateControllers;
 import org.multibit.file.FileHandler;

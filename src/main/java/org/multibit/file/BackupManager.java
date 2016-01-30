@@ -1,11 +1,6 @@
 package org.multibit.file;
 
-import com.google.bitcoin.core.Utils;
-import com.google.bitcoin.core.Wallet;
-import com.google.bitcoin.crypto.EncryptedPrivateKey;
-import com.google.bitcoin.crypto.KeyCrypter;
-import com.google.bitcoin.crypto.KeyCrypterException;
-import com.google.bitcoin.crypto.KeyCrypterScrypt;
+
 import com.google.protobuf.ByteString;
 import org.bitcoinj.wallet.Protos;
 import org.bitcoinj.wallet.Protos.ScryptParameters;
@@ -17,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.util.Arrays;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.Utils;
 import com.google.groestlcoin.core.Wallet;
 import com.google.groestlcoin.crypto.EncryptedPrivateKey;
@@ -25,14 +20,14 @@ import com.google.groestlcoin.crypto.KeyCrypter;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 import com.google.groestlcoin.crypto.KeyCrypterScrypt;
 import com.google.protobuf.ByteString;
-=======
+
 import java.io.*;
 import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
->>>>>>> original_multibit/master
+
 
 
 /**

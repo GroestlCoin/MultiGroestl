@@ -15,8 +15,7 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.bitcoin.core.MultiBitBlockChain;
-import com.google.bitcoin.crypto.KeyCrypterException;
+
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.file.PrivateKeysHandler;
@@ -30,16 +29,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.util.Arrays;
 
-<<<<<<< HEAD
+
 import com.google.groestlcoin.core.MultiBitBlockChain;
 import com.google.groestlcoin.crypto.KeyCrypterException;
-=======
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.CharBuffer;
->>>>>>> original_multibit/master
+
 
 /**
  * This {@link Action} exports the active wallets private keys.

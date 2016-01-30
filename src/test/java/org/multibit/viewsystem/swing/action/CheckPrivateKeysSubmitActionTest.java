@@ -15,7 +15,7 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.bitcoin.core.Wallet;
+import com.google.groestlcoin.core.Wallet;
 import junit.framework.TestCase;
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
 import org.junit.Test;
