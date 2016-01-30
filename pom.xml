@@ -52,6 +52,10 @@
 
     <repositories>
         <repository>
+            <id>my</id>
+            <url>file://${user.home}/AppData/.m2/repository</url>
+        </repository>
+        <repository>
             <id>sonatype-oss-snapshot</id>
             <snapshots/>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -677,7 +681,7 @@
         <dependency>
             <groupId>com.google</groupId>
             <artifactId>groestlcoinj</artifactId>
-            <version>${bitcoinj.version}</version>
+            <version>0.10.3</version>
             <scope>compile</scope>
         </dependency>
          <dependency>
