@@ -15,24 +15,14 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.IOException;
-import java.nio.CharBuffer;
-
-import javax.swing.Action;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.SwingWorker;
-
+import com.google.bitcoin.core.MultiBitBlockChain;
+import com.google.bitcoin.crypto.KeyCrypterException;
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
-import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.file.PrivateKeysHandler;
 import org.multibit.file.Verification;
-import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.bitcoin.WalletBusyListener;
+import org.multibit.model.bitcoin.WalletData;
 import org.multibit.utils.ImageLoader;
 import org.multibit.viewsystem.swing.MultiBitFrame;
 import org.multibit.viewsystem.swing.view.panels.ExportPrivateKeysPanel;
@@ -40,8 +30,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.util.Arrays;
 
+<<<<<<< HEAD
 import com.google.groestlcoin.core.MultiBitBlockChain;
 import com.google.groestlcoin.crypto.KeyCrypterException;
+=======
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
+import java.nio.CharBuffer;
+>>>>>>> original_multibit/master
 
 /**
  * This {@link Action} exports the active wallets private keys.
@@ -225,8 +223,7 @@ public class ExportPrivateKeysSubmitAction extends MultiBitSubmitAction implemen
                     // Perform a verification on the exported file to see if it
                     // is correct.
                     Verification verification = privateKeysHandler.verifyExportFile(exportPrivateKeysFile, finalBitcoinController.getModel()
-                            .getActivePerWalletModelData().getWallet(), blockChain, performEncryptionOfExportFile,
-                            exportPasswordToUse, walletPassword);
+                            .getActivePerWalletModelData().getWallet(), blockChain, exportPasswordToUse, walletPassword);
                     uiMessage2 = controller.getLocaliser().getString(verification.getMessageKey(), verification.getMessageData());
                     successMeasure = true;
                 } catch (IOException ioe) {
@@ -287,11 +284,9 @@ public class ExportPrivateKeysSubmitAction extends MultiBitSubmitAction implemen
                     new Object[]{controller.getLocaliser().getString(this.bitcoinController.getModel().getActivePerWalletModelData().getBusyTaskKey())}));
             setEnabled(false);           
         } else {
-            // Enable unless wallet has been modified by another process.
-            if (!super.bitcoinController.getModel().getActivePerWalletModelData().isFilesHaveBeenChangedByAnotherProcess()) {
-                putValue(SHORT_DESCRIPTION, controller.getLocaliser().getString("exportPrivateKeysSubmitAction.text"));
-                setEnabled(true);
-            }
+            // Enable
+            putValue(SHORT_DESCRIPTION, controller.getLocaliser().getString("exportPrivateKeysSubmitAction.text"));
+            setEnabled(true);
         }
     }
 }

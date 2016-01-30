@@ -23,9 +23,10 @@
  */
 package org.multibit.model.core;
 
-import java.util.Properties;
 import org.multibit.model.BaseModel;
 import org.multibit.model.ModelEnum;
+
+import java.util.Properties;
 
 /**
  *
@@ -54,6 +55,7 @@ public class CoreModel extends BaseModel<CoreModel> {
     public static final String PREVIOUS_USER_LANGUAGE_CODE = "previousLanguageCode";
     public static final String PREVIOUS_UNDO_CHANGES_TEXT = "previousUndoChangesText";
     public static final String CAN_UNDO_PREFERENCES_CHANGES = "canUndoPreferencesChanges";
+<<<<<<< HEAD
 
     public static final String PREVIOUS_WINDOW_SIZE_H = "previousWindowSizeH";
     public static final String PREVIOUS_WINDOW_SIZE_W = "previousWindowSizeW";
@@ -63,6 +65,11 @@ public class CoreModel extends BaseModel<CoreModel> {
     public static final String PREVIOUS_WINDOW_TRAY = "previousWindowTray";
 
     public static final String MINIMIZE_TO_TRAY = "minimizeToTray";
+=======
+    
+    public static final String FEE_PER_KB = "feePerKB";
+
+>>>>>>> original_multibit/master
     
     public CoreModel() {
         this(null);

@@ -66,7 +66,13 @@ public class BitcoinModel extends AbstractModel<CoreModel> {
     public static final String WALLET_ORDER_TOTAL = "walletOrderTotal";
     public static final String WALLET_ORDER_PREFIX = "walletOrder.";
 
+<<<<<<< HEAD
     // Send groestlcoin and send groestlcoin confirm.
+=======
+    public static final String WALLET_CLEANED_OF_SPAM = "walletCleanedOfSpam";
+
+    // Send bitcoin and send bitcoin confirm.
+>>>>>>> original_multibit/master
     public static final String SEND_ADDRESS = "sendAddress";
     public static final String SEND_LABEL = "sendLabel";
     public static final String SEND_AMOUNT = "sendAmount";
@@ -75,7 +81,7 @@ public class BitcoinModel extends AbstractModel<CoreModel> {
     public static final String SHOW_SIDE_PANEL = "showSidePanel";
     public static final String DISPLAY_AS_SWATCH = "displayAsSwatch";
     public static final String DISPLAY_AS_QR_CODE = "displayAsQRcode";
-    
+
     public static final int MINIMUM_NUMBER_OF_CONNECTED_PEERS_BEFORE_SEND_IS_ENABLED = 2;
 
     // Open groestlcoin URI.
@@ -86,6 +92,7 @@ public class BitcoinModel extends AbstractModel<CoreModel> {
     public static final String OPEN_URI_AMOUNT = "openUriAmount";
     public static final String BRING_TO_FRONT = "bringToFront";
 
+<<<<<<< HEAD
     // Default fee and feePerKB
     public static final BigInteger SEND_FEE_DEFAULT = new BigInteger("50000");
     public static final BigInteger SEND_FEE_PER_KB_DEFAULT = new BigInteger("10000");
@@ -97,6 +104,9 @@ public class BitcoinModel extends AbstractModel<CoreModel> {
     public static final BigInteger SEND_MAXIMUM_FEE = new BigInteger("100000000"); // 1 GRS.
 
     // Receive groestlcoin.
+=======
+    // Receive bitcoin.
+>>>>>>> original_multibit/master
     public static final String IS_RECEIVE_BITCOIN = "isReceiveBitcoin";
     public static final String RECEIVE_ADDRESS = "receiveAddress";
     public static final String RECEIVE_LABEL = "receiveLabel";
@@ -128,14 +138,6 @@ public class BitcoinModel extends AbstractModel<CoreModel> {
     @Deprecated
     public static final String SINGLE_NODE_CONNECTION = "singleNodeConnection";
     public static final String PEERS = "peers";
-
-    
-    // Sizes and last modified dates of files.
-    public static final String WALLET_FILE_SIZE = "walletFileSize";
-    public static final String WALLET_FILE_LAST_MODIFIED = "walletFileLastModified";
-
-    public static final String WALLET_INFO_FILE_SIZE = "walletInfoFileSize";
-    public static final String WALLET_INFO_FILE_LAST_MODIFIED = "walletInfoFileLastModified";
 
     // User preferences undo.
     public static final String PREVIOUS_OPEN_URI_SHOW_DIALOG = "previousOpenUriShowDialog";
