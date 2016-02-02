@@ -91,8 +91,8 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
   private static final double PROPORTION_OF_VERTICAL_SCREEN_TO_FILL = 0.75D;
   private static final double PROPORTION_OF_HORIZONTAL_SCREEN_TO_FILL = 0.82D;
 
-  public static final String EXAMPLE_LONG_FIELD_TEXT = "1JiM1UyTGqpLqgayxTPbWbcdVeoepmY6pK++++";
-  public static final String EXAMPLE_MEDIUM_FIELD_TEXT = "Typical text 00.12345678 BTC (000.01 XYZ)";
+  public static final String EXAMPLE_LONG_FIELD_TEXT = "FJiM1UyTGqpLqgayxTPbWbcdVeoepmY6pK++++";
+  public static final String EXAMPLE_MEDIUM_FIELD_TEXT = "Typical text 00.12345678 GRS (000.01 XYZ)";
 
   public static final int WALLET_WIDTH_DELTA = 25;
 

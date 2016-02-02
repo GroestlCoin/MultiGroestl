@@ -17,15 +17,18 @@
 package org.multibit.exchange;
 
 
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Collection;
-import java.util.List;
-import java.util.TimerTask;
+import java.util.*;
 
 import com.xeiam.xchange.Exchange;
 
+import com.xeiam.xchange.ExchangeFactory;
+import com.xeiam.xchange.ExchangeSpecification;
+import com.xeiam.xchange.currency.Currencies;
 import com.xeiam.xchange.currency.CurrencyPair;
+import com.xeiam.xchange.dto.marketdata.Ticker;
 import com.xeiam.xchange.service.polling.PollingMarketDataService;
 import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
@@ -99,7 +102,7 @@ public class TickerTimerTask extends TimerTask {
      */
     @Override
     public void run() {
-       /** // If this is the second row and is not showing, do not do anything.
+        // If this is the second row and is not showing, do not do anything.
         if (!isFirstExchange && !Boolean.TRUE.toString().equals(
                 controller.getModel().getUserPreference(ExchangeModel.TICKER_SHOW_SECOND_ROW))) {
             return;
@@ -199,9 +202,10 @@ public class TickerTimerTask extends TimerTask {
                                     }
                                 }
                             } else {
+                                CurrencyPair cp = new CurrencyPair("GRS", "BTC");
                                 log.debug("Getting ticker for " + currencyPairToUse.baseSymbol + " "
                                         + currencyPairToUse.counterSymbol);
-                                loopTicker = marketDataService.getTicker(currencyPairToUse);
+                                loopTicker = marketDataService.getTicker(cp);
 
                                 log.debug("Got ticker for " + currencyPairToUse.baseSymbol + " "
                                         + currencyPairToUse.counterSymbol);
@@ -289,11 +293,11 @@ public class TickerTimerTask extends TimerTask {
             if (e.getCause() != null) {
                 log.error(e.getCause().getClass().getName() + " " + e.getCause().getMessage());
             }
-        } */
+        }
     }
 
     public void createExchangeObjects(String newExchangeName) {
-        /**exchange = createExchange(newExchangeName);
+        exchange = createExchange(newExchangeName);
 
         if (exchange != null) {
             // Interested in the public market data feed (no authentication).
@@ -301,7 +305,17 @@ public class TickerTimerTask extends TimerTask {
             log.debug("marketDataService = " + marketDataService);
 
             // Get the list of available currencies.
-            exchangeSymbols = BitcoinAverageBasePollingService.CURRENCY_PAIRS; // TODO: When XChange fixes that shit, refactor this shit...
+
+            Field[] currencyPairFields = CurrencyPair.class.getFields();
+            List<CurrencyPair> currencyPairList = new ArrayList<CurrencyPair>(currencyPairFields.length);
+            try {
+            for(Field currencyPairField : currencyPairFields)
+                currencyPairList.add((CurrencyPair)currencyPairField.get(CurrencyPair.class));
+
+            }
+            catch (Exception e) {}
+            exchangeSymbols = currencyPairList;//BitcoinAverageBasePollingService.CURRENCY_PAIRS;   // TODO: When XChange fixes that shit, refactor this shit...
+                                                                                                    // Not sure what your problem is though, lel
             log.debug("exchangeSymbols = " + exchangeSymbols);
 
             if (exchangeSymbols != null) {
@@ -335,7 +349,7 @@ public class TickerTimerTask extends TimerTask {
                 }
                 ExchangeData.setAvailableCurrenciesForExchange(newExchangeName, availableCurrencies);
             }
-        }*/
+        }
     }
 
     /**
@@ -344,7 +358,7 @@ public class TickerTimerTask extends TimerTask {
      * @param exchangeShortname The name of the exchange to create
      */
     private Exchange createExchange(String exchangeShortname) {
-        /*log.debug("creating exchange from exchangeShortname  = " + exchangeShortname);
+        log.debug("creating exchange from exchangeShortname  = " + exchangeShortname);
         if (exchangeShortname == null) {
             return null;
         }
@@ -386,7 +400,7 @@ public class TickerTimerTask extends TimerTask {
             log.error(e.getClass().getName() + " " + e.getMessage());
         } catch (NullPointerException e) {
             log.error(e.getClass().getName() + " " + e.getMessage());
-        }           */
+        }
         return null;
     }
 

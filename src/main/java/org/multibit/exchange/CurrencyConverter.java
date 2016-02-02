@@ -463,13 +463,13 @@ public enum CurrencyConverter {
             moneyFormatterToUse = moneyFormatter;
             
         }
-   
+
         if (groupingSeparator == null) {
             DecimalFormat fiatFormatter = (DecimalFormat) DecimalFormat.getInstance(controller.getLocaliser().getLocale());
             groupingSeparator = String.valueOf(fiatFormatter.getDecimalFormatSymbols().getGroupingSeparator());
         }
 
-        String toReturn =  moneyFormatterToUse.print(money);
+        String toReturn = moneyFormatterToUse.print(money);
         
         // Get rid of negative sign followed by thousand separator
         if (".".equals(groupingSeparator)) {

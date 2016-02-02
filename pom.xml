@@ -444,7 +444,7 @@
             <groupId>com.xeiam.xchange</groupId>
 
             <artifactId>xchange-core</artifactId>
-            <version>${xchange.version}</version>
+            <version>2.1.0</version>
 
         </dependency>
         <!-- XChange VirtEx exchange support -->
@@ -452,6 +452,11 @@
             <groupId>com.xeiam.xchange</groupId>
             <artifactId>xchange-cavirtex</artifactId>
             <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xeiam.xchange</groupId>
+            <artifactId>xchange-poloniex</artifactId>
+            <version>2.1.0</version>
         </dependency>
         <!-- XChange Open Exchange Rates exchange support -->
         <dependency>

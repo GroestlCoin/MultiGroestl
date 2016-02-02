@@ -19,6 +19,7 @@ import com.xeiam.xchange.bitstamp.BitstampExchange;
 import com.xeiam.xchange.btce.v3.BTCEExchange;
 import com.xeiam.xchange.campbx.CampBXExchange;
 import com.xeiam.xchange.oer.OERExchange;
+import com.xeiam.xchange.poloniex.PoloniexExchange;
 import com.xeiam.xchange.virtex.VirtExExchange;
 import org.joda.money.BigMoney;
 
@@ -45,11 +46,11 @@ public class ExchangeData {
     public static final String OPEN_EXCHANGE_RATES_EXCHANGE_NAME = "OpenExchangeRates";
     public static final String MT_GOX_EXCHANGE_NAME = "MtGox";  // No longer presently to user
     public static final String VIRTEX_EXCHANGE_NAME = "VirtEx";
-    public static final String CRYPTSY_EXCHANGE_NAME = "Poloniex";
+    public static final String POLONIEX_EXCHANGE_NAME = "Poloniex";
     public static final String BITCOINAVERAGE_EXCHANGE_NAME = "BitcoinAverage";
 
 
-    public static final String DEFAULT_EXCHANGE = CRYPTSY_EXCHANGE_NAME;
+    public static final String DEFAULT_EXCHANGE = POLONIEX_EXCHANGE_NAME;
 
     
     public static final String DEFAULT_CURRENCY = "USD";
@@ -145,7 +146,7 @@ public class ExchangeData {
             CAMPBX_EXCHANGE_NAME,
             OPEN_EXCHANGE_RATES_EXCHANGE_NAME,
             VIRTEX_EXCHANGE_NAME};*/
-        return new String[] {CRYPTSY_EXCHANGE_NAME};
+        return new String[] {POLONIEX_EXCHANGE_NAME};
     }
 
     public static Collection<String> getAvailableCurrenciesForExchange(String shortExchangeName) {
@@ -167,17 +168,17 @@ public class ExchangeData {
      */
     public static String convertExchangeShortNameToClassname(String shortExchangeName) {
         if (BITSTAMP_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
-            return  BitstampExchange.class.getName();
-        }  else if (BTCE_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
-            return  BTCEExchange.class.getName();
+            return BitstampExchange.class.getName();
+        } else if (BTCE_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
+            return BTCEExchange.class.getName();
         } else if (CAMPBX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
-            return  CampBXExchange.class.getName();
+            return CampBXExchange.class.getName();
         } else if (OPEN_EXCHANGE_RATES_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
-            return  OERExchange.class.getName();
+            return OERExchange.class.getName();
         } else if (VIRTEX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
-            return  VirtExExchange.class.getName();
-        //} else if (BITCOINAVERAGE_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName) || CRYPTSY_EXCHANGE_NAME.equals(shortExchangeName)) {
-            //return BitcoinAverageExchange.class.getName();
+            return VirtExExchange.class.getName();
+        } else if (POLONIEX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
+            return PoloniexExchange.class.getName();
         } else {
             // Unidentified exchange.
             return null;

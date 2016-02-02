@@ -32,7 +32,7 @@ public class LaunchTryMultiBitHDAction extends AbstractAction {
 
     private static final long serialVersionUID = 191948287465057705L;
 
-    public static final String TRY_MULTIBIT_HD_PAGE = "https://multibit.org/try-multibit-hd.html";
+    public static final String TRY_MULTIBIT_HD_PAGE = "https://github.com/GroestlCoin/multigroestl-hd";
 
     /**
      * Creates a new {@link LaunchTryMultiBitHDAction}.
