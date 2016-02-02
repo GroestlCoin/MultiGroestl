@@ -15,19 +15,18 @@
  */
 package org.multibit.viewsystem.swing.action;
 
-import com.google.groestlcoin.core.Address;
-import com.google.groestlcoin.core.AddressFormatException;
-import com.google.groestlcoin.core.Utils;
+
+import com.google.groestlcoin.core.*;
 import com.google.groestlcoin.core.Wallet.SendRequest;
-import com.google.groestlcoin.core.WrongNetworkException;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 import org.multibit.controller.bitcoin.BitcoinController;
 import org.multibit.message.Message;
 import org.multibit.message.MessageManager;
-import org.multibit.model.bitcoin.BitcoinModel;
+import org.multibit.model.core.CoreModel;
 import org.multibit.utils.ImageLoader;
 import org.multibit.viewsystem.dataproviders.BitcoinFormDataProvider;
 import org.multibit.viewsystem.swing.MultiBitFrame;
+import org.multibit.viewsystem.swing.view.components.FeeSlider;
 import org.multibit.viewsystem.swing.view.dialogs.SendBitcoinConfirmDialog;
 import org.multibit.viewsystem.swing.view.dialogs.ValidationErrorDialog;
 import org.slf4j.Logger;
@@ -87,14 +86,25 @@ public class SendBitcoinConfirmAction extends MultiBitSubmitAction {
                 SendRequest sendRequest = SendRequest.to(sendAddressObject, Utils.toNanoCoins(sendAmount));
                 sendRequest.ensureMinRequiredFee = true;
                 sendRequest.fee = BigInteger.ZERO;
-                sendRequest.feePerKb = BitcoinModel.SEND_FEE_PER_KB_DEFAULT;
+
+                // Work out fee per KB
+                String unparsedFeePerKB = controller.getModel().getUserPreference(CoreModel.FEE_PER_KB);
+
+                // Ensure the initialFeeValue is in range of the slider
+                sendRequest.feePerKb = BigInteger.valueOf(FeeSlider.parseAndNormaliseFeePerKB(unparsedFeePerKB));
 
                 // Note - Request is populated with the AES key in the SendBitcoinNowAction after the user has entered it on the SendBitcoinConfirm form.
 
                 // Complete it (which works out the fee) but do not sign it yet.
                 log.debug("Just about to complete the tx (and calculate the fee)...");
-                boolean completedOk = bitcoinController.getModel().getActiveWallet().completeTx(sendRequest, false);
-                log.debug("The fee after completing the transaction was " + sendRequest.fee);
+                boolean completedOk;
+                try {
+                    bitcoinController.getModel().getActiveWallet().completeTx(sendRequest, false);
+                  completedOk = true;
+                  log.debug("The fee after completing the transaction was " + sendRequest.fee);
+                } catch (Exception ime) {
+                  completedOk = false;
+                }
                 if (completedOk) {
                     // There is enough money.
 

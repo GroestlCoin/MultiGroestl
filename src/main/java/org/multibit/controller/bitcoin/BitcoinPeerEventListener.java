@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Set;
 
 public class BitcoinPeerEventListener implements PeerEventListener {
 
@@ -43,7 +44,7 @@ public class BitcoinPeerEventListener implements PeerEventListener {
   @Override
   public void onPeerConnected(Peer peer, int peerCount) {
     if (peer != null) {
-      log.debug("Connected to peer:" + peer.getPeerVersionMessage());
+      log.info("Connected to peer:" + peer.getPeerVersionMessage());
     }
     if (peerCount >= 1) {
       controller.setOnlineStatus(StatusEnum.ONLINE);
@@ -57,7 +58,7 @@ public class BitcoinPeerEventListener implements PeerEventListener {
   @Override
   public void onPeerDisconnected(Peer peer, int peerCount) {
     if (peer != null) {
-      log.debug("Disconnected from peer, address : " + peer.getAddress() + ", peerCount = " + peerCount);
+      log.info("Disconnected from peer, address : " + peer.getAddress() + ", peerCount = " + peerCount);
     }
     if (peerCount == 0) {
       controller.setOnlineStatus(StatusEnum.CONNECTING);
@@ -85,7 +86,10 @@ public class BitcoinPeerEventListener implements PeerEventListener {
             Wallet loopWallet = perWalletModelData.getWallet();
             if (loopWallet != null) {
               if (loopWallet.isTransactionRelevant(transaction)) {
-                if (!(transaction.isTimeLocked() && transaction.getConfidence().getSource() != TransactionConfidence.Source.SELF)) {
+                if (!(transaction.isTimeLocked()
+                        && transaction.getConfidence().getSource() != TransactionConfidence.Source.SELF))
+                        //&& loopWallet.isTransactionRisky(transaction, null)) {
+                {
                   if (loopWallet.getTransaction(transaction.getHash()) == null) {
                     log.debug("MultiBit adding a new pending transaction for the wallet '"
                             + perWalletModelData.getWalletDescription() + "'\n" + transaction.toString());

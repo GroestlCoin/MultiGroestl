@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 MultiGroestl release notes:
 
 19 Jan 2016: 0.1.3.2
 + Updated checkpoints
+=======
+MultiBit release notes.
+
+dd mmm 2015 Version 0.5.19
+Changes:
+  Upgrade to Install4j as installer
+>>>>>>> original_multibit/master

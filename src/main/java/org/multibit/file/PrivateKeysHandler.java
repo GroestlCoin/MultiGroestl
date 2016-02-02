@@ -38,6 +38,8 @@ import java.util.TimeZone;
 import com.google.groestlcoin.crypto.KeyCrypter;
 import com.google.groestlcoin.crypto.KeyCrypterException;
 
+
+
 import org.multibit.crypto.KeyCrypterOpenSSL;
 import org.multibit.utils.DateUtils;
 import org.slf4j.Logger;
@@ -59,6 +61,7 @@ import com.google.groestlcoin.core.Utils;
 import com.google.groestlcoin.core.Wallet;
 
 import org.bitcoinj.wallet.Protos.Wallet.EncryptionType;
+
 
 /**
  * Class for handling reading and writing of private keys to a file.
@@ -145,14 +148,12 @@ public class PrivateKeysHandler {
      *            The export file to verify
      * @param wallet
      *            The wallet to verify the keys against
-     * @param performEncryptionOfExportFile
-     *            Is Encryption required
      * @param exportPassword
      *            the password to use is encryption is required
      * @return Verification The result of verification
-     * @throws EncrypterDecrypterException 
+     * @throws KeyCrypterException
      */
-    public Verification verifyExportFile(File exportFile, Wallet wallet, BlockChain blockChain, boolean performEncryptionOfExportFile,
+    public Verification verifyExportFile(File exportFile, Wallet wallet, BlockChain blockChain,
             CharSequence exportPassword, CharSequence walletPassword) throws KeyCrypterException {
         boolean thereWereFailures = false;
 
@@ -292,13 +293,11 @@ public class PrivateKeysHandler {
                             if (transactionUsesKey(tx, ecKey)) {
                                 Date updateTime = tx.getUpdateTime();
                                 if (updateTime != null) {
-                                    if (updateTime != null) {
-                                        if (overallLastUsageDate == null) {
-                                            overallLastUsageDate = updateTime;
-                                        } else {
-                                            overallLastUsageDate = overallLastUsageDate.after(updateTime) ? overallLastUsageDate
+                                    if (overallLastUsageDate == null) {
+                                        overallLastUsageDate = updateTime;
+                                    } else {
+                                        overallLastUsageDate = overallLastUsageDate.after(updateTime) ? overallLastUsageDate
                                                     : updateTime;
-                                        }
                                     }
                                     if (earliestUsageDate == null) {
                                         earliestUsageDate = updateTime;
@@ -494,8 +493,9 @@ public class PrivateKeysHandler {
 
     public static String readFile(File file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        String line = null;
+        String line;
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("");
         String ls = System.getProperty("line.separator");
         while ((line = reader.readLine()) != null) {
             stringBuilder.append(line);

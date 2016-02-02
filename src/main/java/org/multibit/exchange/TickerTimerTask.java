@@ -16,33 +16,36 @@
  */
 package org.multibit.exchange;
 
+
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Collection;
-import java.util.List;
-import java.util.TimerTask;
-
-import com.xeiam.xchange.bitcoinaverage.service.polling.BitcoinAverageBasePollingService;
-import org.joda.money.BigMoney;
-import org.joda.money.CurrencyUnit;
-
-import org.multibit.controller.Controller;
-import org.multibit.controller.exchange.ExchangeController;
-import org.multibit.model.exchange.ExchangeData;
-import org.multibit.model.exchange.ExchangeModel;
-import org.multibit.utils.DogeUtils;
-import org.multibit.viewsystem.swing.MultiBitFrame;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.*;
 
 import com.xeiam.xchange.Exchange;
+
 import com.xeiam.xchange.ExchangeFactory;
 import com.xeiam.xchange.ExchangeSpecification;
 import com.xeiam.xchange.currency.Currencies;
 import com.xeiam.xchange.currency.CurrencyPair;
 import com.xeiam.xchange.dto.marketdata.Ticker;
 import com.xeiam.xchange.service.polling.PollingMarketDataService;
+import org.joda.money.BigMoney;
+import org.joda.money.CurrencyUnit;
+import org.multibit.controller.Controller;
+import org.multibit.controller.exchange.ExchangeController;
+import org.multibit.model.exchange.ExchangeData;
+import org.multibit.model.exchange.ExchangeModel;
+import org.multibit.utils.DogeUtils;
+import org.multibit.viewsystem.swing.MultiBitFrame;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Collection;
+import java.util.List;
+import java.util.TimerTask;
 
 /**
  * TimerTask to poll currency exchanges for ticker data process
@@ -199,9 +202,10 @@ public class TickerTimerTask extends TimerTask {
                                     }
                                 }
                             } else {
+                                CurrencyPair cp = new CurrencyPair("GRS", "BTC");
                                 log.debug("Getting ticker for " + currencyPairToUse.baseSymbol + " "
                                         + currencyPairToUse.counterSymbol);
-                                loopTicker = marketDataService.getTicker(currencyPairToUse);
+                                loopTicker = marketDataService.getTicker(cp);
 
                                 log.debug("Got ticker for " + currencyPairToUse.baseSymbol + " "
                                         + currencyPairToUse.counterSymbol);
@@ -301,7 +305,17 @@ public class TickerTimerTask extends TimerTask {
             log.debug("marketDataService = " + marketDataService);
 
             // Get the list of available currencies.
-            exchangeSymbols = BitcoinAverageBasePollingService.CURRENCY_PAIRS; // TODO: When XChange fixes that shit, refactor this shit...
+
+            Field[] currencyPairFields = CurrencyPair.class.getFields();
+            List<CurrencyPair> currencyPairList = new ArrayList<CurrencyPair>(currencyPairFields.length);
+            try {
+            for(Field currencyPairField : currencyPairFields)
+                currencyPairList.add((CurrencyPair)currencyPairField.get(CurrencyPair.class));
+
+            }
+            catch (Exception e) {}
+            exchangeSymbols = currencyPairList;//BitcoinAverageBasePollingService.CURRENCY_PAIRS;   // TODO: When XChange fixes that shit, refactor this shit...
+                                                                                                    // Not sure what your problem is though, lel
             log.debug("exchangeSymbols = " + exchangeSymbols);
 
             if (exchangeSymbols != null) {
@@ -339,10 +353,9 @@ public class TickerTimerTask extends TimerTask {
     }
 
     /**
-     * Create the exchange specified by the exchange class name specified e.g.
-     * BitcoinChartsExchange.class.getName();
+     * Create the exchange specified by the exchange short name
      * 
-     * @param exchangeClassName
+     * @param exchangeShortname The name of the exchange to create
      */
     private Exchange createExchange(String exchangeShortname) {
         log.debug("creating exchange from exchangeShortname  = " + exchangeShortname);

@@ -15,6 +15,10 @@
  */
 package org.multibit.controller.bitcoin;
 
+import com.google.groestlcoin.script.Script;
+import org.multibit.controller.core.CoreController;
+
+
 import com.google.groestlcoin.core.*;
 import com.google.groestlcoin.uri.BitcoinURI;
 import com.google.groestlcoin.uri.BitcoinURIParseException;
@@ -137,15 +141,6 @@ public class BitcoinController extends AbstractController<CoreController> implem
         }
         return perWalletModelDataToReturn;
     }
-
-    public void fireFilesHaveBeenChangedByAnotherProcess(WalletData perWalletModelData) {
-        //log.debug("fireFilesHaveBeenChangedByAnotherProcess called");
-        for (ViewSystem viewSystem : super.getViewSystem()) {
-            viewSystem.fireFilesHaveBeenChangedByAnotherProcess(perWalletModelData);
-        }
-
-        fireDataChangedUpdateNow();
-    }
        
     /**
      * Fire that a wallet has changed its busy state.
@@ -231,7 +226,8 @@ public class BitcoinController extends AbstractController<CoreController> implem
         log.debug("Keys added : " + keys.toString());
     }
 
-    @Override
+
+  @Override
     public void onReorganize(Wallet wallet) {
         log.debug("onReorganize called");
         List<WalletData> perWalletModelDataList = getModel().getPerWalletModelDataList();
@@ -373,9 +369,6 @@ public class BitcoinController extends AbstractController<CoreController> implem
         public void handleQuitEvent(ExitAction exitAction) {
             exitAction.setBitcoinController(super.controller);
         }
-    }
-
-    public void onConfidenceChanged(Transaction tx) {
     }
 
     @Override

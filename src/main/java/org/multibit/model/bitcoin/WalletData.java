@@ -15,12 +15,13 @@
  */
 package org.multibit.model.bitcoin;
 
+
+import org.multibit.viewsystem.swing.view.walletlist.SingleWalletPanelDownloadListener;
+import com.google.groestlcoin.core.Wallet;
+
 import java.util.List;
 import java.util.UUID;
 
-import org.multibit.viewsystem.swing.view.walletlist.SingleWalletPanelDownloadListener;
-
-import com.google.groestlcoin.core.Wallet;
 
 /**
  * This wrapper class wraps all the data pertaining to a single wallet.
@@ -151,14 +152,6 @@ public class WalletData {
                 setDirty(true);
             }
         }
-    }
-
-    public boolean isFilesHaveBeenChangedByAnotherProcess() {
-        return filesHaveBeenChangedByAnotherProcess;
-    }
-
-    public void setFilesHaveBeenChangedByAnotherProcess(boolean filesHaveBeenChangedByAnotherProcess) {
-        this.filesHaveBeenChangedByAnotherProcess = filesHaveBeenChangedByAnotherProcess;
     }
 
     public boolean isDirty() {

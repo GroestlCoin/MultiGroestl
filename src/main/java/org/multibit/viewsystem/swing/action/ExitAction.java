@@ -15,8 +15,12 @@
  */
 package org.multibit.viewsystem.swing.action;
 
+import org.multibit.controller.Controller;
+
+
 import com.google.groestlcoin.store.BlockStore;
 import com.google.groestlcoin.store.BlockStoreException;
+import com.google.common.util.concurrent.Uninterruptibles;
 import org.multibit.ApplicationInstanceManager;
 import org.multibit.controller.Controller;
 import org.multibit.controller.bitcoin.BitcoinController;
@@ -28,7 +32,6 @@ import org.multibit.message.Message;
 import org.multibit.message.MessageManager;
 import org.multibit.model.bitcoin.WalletData;
 import org.multibit.model.core.CoreModel;
-import org.multibit.store.WalletVersionException;
 import org.multibit.viewsystem.swing.HealthCheckTimerTask;
 import org.multibit.viewsystem.swing.MultiBitFrame;
 import org.slf4j.Logger;
@@ -38,6 +41,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Exit the application.
@@ -46,7 +50,7 @@ public class ExitAction extends AbstractExitAction {
 
     private static final long serialVersionUID = 8784284740245520863L;
     
-    private static final int MAXIMUM_TIME_TO_WAIT_FOR_HEALTH_CHECK_TASK = 10000; // ms
+    private static final int MAXIMUM_TIME_TO_WAIT_FOR_HEALTH_CHECK_TASK = 30000; // ms
     private static final int TIME_TO_WAIT = 200; // ms
 
     private final MultiBitFrame mainFrame;
@@ -54,6 +58,12 @@ public class ExitAction extends AbstractExitAction {
 
     private CoreController coreController = null;
     private BitcoinController bitcoinController = null;
+
+    /**
+     * Boolean indicating if the ExitAction is running.
+     * This depends on there only being one ExitAction being active at any one time
+     */
+    private static boolean running = false;
 
     /**
      * Creates a new {@link ExitAction}.
@@ -77,6 +87,8 @@ public class ExitAction extends AbstractExitAction {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
+        running = true;
+
         String shuttingDownTitle = bitcoinController.getLocaliser().getString("multiBitFrame.title.shuttingDown");
 
         if (mainFrame != null) {
@@ -96,18 +108,12 @@ public class ExitAction extends AbstractExitAction {
             // If the HealthCheckTimerTask is running wait until it completes.
             HealthCheckTimerTask healthCheckTimerTask = mainFrame.getHealthCheckTimerTask();
             if (healthCheckTimerTask != null) {
-                boolean breakout = false;
                 int timeWaited = 0;
                 
-                while(healthCheckTimerTask.isRunning() && !breakout && timeWaited < MAXIMUM_TIME_TO_WAIT_FOR_HEALTH_CHECK_TASK) {
-                    try {
-                        log.debug("Waiting for healthCheckTimerTask to complete (waited so far = " + timeWaited + "). . .");
-                        Thread.sleep(TIME_TO_WAIT);
-                        timeWaited = timeWaited + TIME_TO_WAIT;
-                    } catch (InterruptedException e) {
-                        breakout = true;
-                        e.printStackTrace();
-                    }
+                while(healthCheckTimerTask.isRunning() && timeWaited < MAXIMUM_TIME_TO_WAIT_FOR_HEALTH_CHECK_TASK) {
+                    log.debug("Waiting for healthCheckTimerTask to complete (waited so far = " + timeWaited + "). . .");
+                    Uninterruptibles.sleepUninterruptibly(TIME_TO_WAIT, TimeUnit.MILLISECONDS);
+                    timeWaited = timeWaited + TIME_TO_WAIT;
                 }
             }
         }
@@ -116,7 +122,7 @@ public class ExitAction extends AbstractExitAction {
             // Stop the peer group so that blocks are notified to wallets correctly.
             if (bitcoinController.getMultiBitService().getPeerGroup() != null) {
                 log.debug("Closing Bitcoin network connection...");
-                bitcoinController.getMultiBitService().getPeerGroup().stopAndWait();
+                bitcoinController.getMultiBitService().getPeerGroup().stop();
                 log.debug("PeerGroup is now stopped.");
             }
 
@@ -138,13 +144,13 @@ public class ExitAction extends AbstractExitAction {
 
         if (bitcoinController != null && mainFrame != null) {
             // Save the current window state so we can restore it on next start
-            bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_SIZE_H, String.valueOf(mainFrame.getHeight()));
+          /**  bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_SIZE_H, String.valueOf(mainFrame.getHeight()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_SIZE_W, String.valueOf(mainFrame.getWidth()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_POS_X, String.valueOf(mainFrame.getX()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_POS_Y, String.valueOf(mainFrame.getY()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_MAX, String.valueOf(mainFrame.getExtendedState()));
             bitcoinController.getModel().setUserPreference(CoreModel.PREVIOUS_WINDOW_TRAY, String.valueOf(mainFrame.isInTray()));
-        }
+        */}
 
         if (bitcoinController != null) {
             // Save all the wallets and put their filenames in the user preferences.
@@ -183,7 +189,7 @@ public class ExitAction extends AbstractExitAction {
                             MessageManager.INSTANCE.addMessage(new Message(wse2.getClass().getCanonicalName() + " "
                                     + wse2.getMessage()));
                         }
-                    } catch (WalletVersionException wve) {
+                    } catch (Exception wve) {
                         log.error(wve.getClass().getCanonicalName() + " " + wve.getMessage());
                         MessageManager.INSTANCE.addMessage(new Message(wve.getClass().getCanonicalName() + " " + wve.getMessage()));
                     }
@@ -207,6 +213,11 @@ public class ExitAction extends AbstractExitAction {
             mainFrame.dispose();
         }
 
+        running = false;
         System.exit(0);
+    }
+
+    public static boolean isRunning() {
+        return running;
     }
 }
