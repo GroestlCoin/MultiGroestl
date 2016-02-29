@@ -202,7 +202,7 @@ public class TickerTimerTask extends TimerTask {
                                     }
                                 }
                             } else {
-                                CurrencyPair cp = new CurrencyPair("GRS", "BTC");
+                                CurrencyPair cp = new CurrencyPair("BTC", currency);
                                 log.debug("Getting ticker for " + currencyPairToUse.baseSymbol + " "
                                         + currencyPairToUse.counterSymbol);
                                 loopTicker = marketDataService.getTicker(cp);

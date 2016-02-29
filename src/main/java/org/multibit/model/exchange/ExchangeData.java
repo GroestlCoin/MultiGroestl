@@ -50,7 +50,7 @@ public class ExchangeData {
     public static final String BITCOINAVERAGE_EXCHANGE_NAME = "BitcoinAverage";
 
 
-    public static final String DEFAULT_EXCHANGE = POLONIEX_EXCHANGE_NAME;
+    public static final String DEFAULT_EXCHANGE = BITSTAMP_EXCHANGE_NAME;
 
     
     public static final String DEFAULT_CURRENCY = "USD";
@@ -146,7 +146,7 @@ public class ExchangeData {
             CAMPBX_EXCHANGE_NAME,
             OPEN_EXCHANGE_RATES_EXCHANGE_NAME,
             VIRTEX_EXCHANGE_NAME};*/
-        return new String[] {POLONIEX_EXCHANGE_NAME};
+        return new String[] {BTCE_EXCHANGE_NAME};
     }
 
     public static Collection<String> getAvailableCurrenciesForExchange(String shortExchangeName) {

@@ -96,13 +96,13 @@ public class ListAddresses {
     System.out.println("Building MultiBit runtime in : " + multiBitDirectory.getAbsolutePath());
 
     // Create an empty multibit.properties.
-    File multibitProperties = new File(multiBitDirectoryPath + File.separator + "multibit.properties");
+    File multibitProperties = new File(multiBitDirectoryPath + File.separator + "multigroestl.properties");
     multibitProperties.createNewFile();
     multibitProperties.deleteOnExit();
 
     // Copy in the checkpoints stored in git - this is in source/main/resources/.
-    File multibitCheckpoints = new File(multiBitDirectoryPath + File.separator + "multibit.checkpoints");
-    FileHandler.copyFile(new File("./src/main/resources/multibit.checkpoints"), multibitCheckpoints);
+    File multibitCheckpoints = new File(multiBitDirectoryPath + File.separator + "multigroestl.checkpoints");
+    FileHandler.copyFile(new File("./src/main/resources/multigroestl.checkpoints"), multibitCheckpoints);
     multibitCheckpoints.deleteOnExit();
 
     return multiBitDirectory;

@@ -40,7 +40,7 @@ public class HelpAboutPanel extends JPanel implements Viewable {
     private static final long serialVersionUID = 191352212345057705L;
 
 	private static final String SPLASH_ICON_FILE = "/images/multigroestl512.jpg";
-    private static final String MULTIBIT_URL = "https://groestlcoin.org";
+    private static final String MULTIBIT_URL = "http://groestlcoin.org";
     
     private Controller controller;
 

@@ -40,11 +40,6 @@
             <id>my</id>
             <url>file://${user.home}/AppData/.m2/repository</url>
         </repository>
-        <repository>
-            <id>sonatype-oss-snapshot</id>
-            <snapshots/>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
         <!-- zxing release repo -->
         <repository>
             <id>mvn-adamgent</id>
