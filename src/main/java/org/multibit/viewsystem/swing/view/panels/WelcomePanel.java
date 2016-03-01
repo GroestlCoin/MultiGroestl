@@ -269,7 +269,7 @@ public class WelcomePanel extends JPanel implements Viewable {
         constraints.weighty = 1.0;
         constraints.gridwidth = 3;
         constraints.anchor = GridBagConstraints.LINE_START;
-        welcomePanel.add(paragraph4TextArea, constraints);
+       // welcomePanel.add(paragraph4TextArea, constraints);
 
         JLabel filler1 = new JLabel();
         filler1.setOpaque(false);
