@@ -219,6 +219,6 @@ public class HelpContentsPanel extends JPanel implements Viewable {
 
     @Override
     public View getViewId() {
-        return View.HELP_CONTENTS_VIEW;
+        return View.HELP_ABOUT_VIEW;//return View.HELP_CONTENTS_VIEW;
     }
 }

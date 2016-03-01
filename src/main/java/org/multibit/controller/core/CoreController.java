@@ -122,12 +122,12 @@ public class CoreController extends BaseController<CoreController> implements Ge
             viewSystem.navigateAwayFromView(getCurrentView());
         }
 
-        setCurrentView(View.HELP_CONTENTS_VIEW);
+        //setCurrentView(View.HELP_CONTENTS_VIEW);
 
         // Tell all views which view to display.
         for (ViewSystem viewSystem : super.getViewSystem()) {
             viewSystem.setHelpContext(helpContextToDisplay);
-            viewSystem.displayView(View.HELP_CONTENTS_VIEW);
+          //  viewSystem.displayView(View.HELP_CONTENTS_VIEW);
         }
     }
     

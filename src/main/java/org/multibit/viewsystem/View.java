@@ -32,7 +32,7 @@ public enum View {
     SEND_BITCOIN_VIEW,
     SEND_BITCOIN_CONFIRM_VIEW, // obsolete - now done with Swing dialog
     RECEIVE_BITCOIN_VIEW,
-    HELP_CONTENTS_VIEW,
+   // HELP_CONTENTS_VIEW,
     HELP_ABOUT_VIEW,
     PREFERENCES_VIEW,
     OPEN_WALLET_VIEW, // obsolete - now done with Swing dialog
@@ -86,7 +86,7 @@ public enum View {
             case 2  : return SEND_BITCOIN_VIEW;
           //case 3  : return SEND_BITCOIN_CONFIRM_VIEW; (obsolete)
             case 4  : return RECEIVE_BITCOIN_VIEW;
-            case 5  : return HELP_CONTENTS_VIEW;
+           // case 5  : return HELP_CONTENTS_VIEW;
             case 6  : return HELP_ABOUT_VIEW;
             case 7  : return PREFERENCES_VIEW;
           //case 8  : return OPEN_WALLET_VIEW; (obsolete)
@@ -131,7 +131,7 @@ public enum View {
             case TRANSACTIONS_VIEW : return 1;
             case SEND_BITCOIN_VIEW : return 2;
             case RECEIVE_BITCOIN_VIEW : return 4;
-            case HELP_CONTENTS_VIEW : return 5;
+        //    case HELP_CONTENTS_VIEW : return 5;
             case HELP_ABOUT_VIEW : return 6;
             case PREFERENCES_VIEW : return 7;
             case YOUR_WALLETS_VIEW : return 11;

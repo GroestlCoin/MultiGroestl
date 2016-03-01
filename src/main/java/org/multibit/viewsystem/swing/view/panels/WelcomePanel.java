@@ -130,7 +130,7 @@ public class WelcomePanel extends JPanel implements Viewable {
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.anchor = GridBagConstraints.BASELINE_LEADING;
-        mainPanel.add(helpButton, constraints);
+        //mainPanel.add(helpButton, constraints);
 
         JLabel filler2 = new JLabel();
         filler2.setOpaque(false);

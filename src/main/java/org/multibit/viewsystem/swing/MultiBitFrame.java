@@ -910,7 +910,7 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
     helpMenu.add(menuItem);
 
     MultiBitAction showHelpContentsAction;
-    if (ComponentOrientation.LEFT_TO_RIGHT == ComponentOrientation.getOrientation(controller.getLocaliser().getLocale())) {
+   /** if (ComponentOrientation.LEFT_TO_RIGHT == ComponentOrientation.getOrientation(controller.getLocaliser().getLocale())) {
       showHelpContentsAction = new MultiBitAction(controller, ImageLoader.HELP_CONTENTS_ICON_FILE,
               "showHelpContentsAction.text", "showHelpContentsAction.tooltip", "showHelpContentsAction.mnemonic",
               View.HELP_CONTENTS_VIEW);
@@ -925,7 +925,7 @@ public class MultiBitFrame extends JFrame implements ViewSystem, ApplicationList
     menuItem.setFont(FontSizer.INSTANCE.getAdjustedDefaultFont());
     menuItem.setComponentOrientation(componentOrientation);
     helpMenu.add(menuItem);
-
+      */
     if (application != null && !application.isMac()) {
       // Non Macs have a Help About menu item.
       MultiBitAction helpAboutAction = new MultiBitAction(controller, ImageLoader.MULTIBIT_SMALL_ICON_FILE,

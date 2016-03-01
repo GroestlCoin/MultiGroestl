@@ -92,10 +92,10 @@ public class ViewFactory {
         break;
       }
 
-      case HELP_CONTENTS_VIEW: {
-        viewToReturn = new HelpContentsPanel(controller, mainFrame);
-        break;
-      }
+    //  case HELP_CONTENTS_VIEW: {
+     //   viewToReturn = new HelpContentsPanel(controller, mainFrame);
+      //  break;
+      //}
 
       case RECEIVE_BITCOIN_VIEW: {
         viewToReturn = new ReceiveBitcoinPanel(this.bitcoinController, mainFrame);
