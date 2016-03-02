@@ -29,7 +29,7 @@ import com.xeiam.xchange.ExchangeSpecification;
 import com.xeiam.xchange.currency.Currencies;
 import com.xeiam.xchange.currency.CurrencyPair;
 import com.xeiam.xchange.dto.marketdata.Ticker;
-import com.xeiam.xchange.service.polling.PollingMarketDataService;
+import com.xeiam.xchange.service.polling.marketdata.PollingMarketDataService;
 import org.joda.money.BigMoney;
 import org.joda.money.CurrencyUnit;
 import org.multibit.controller.Controller;
@@ -205,6 +205,7 @@ public class TickerTimerTask extends TimerTask {
                                 CurrencyPair cp = new CurrencyPair("BTC", currency);
                                 log.debug("Getting ticker for " + currencyPairToUse.baseSymbol + " "
                                         + currencyPairToUse.counterSymbol);
+
                                 loopTicker = marketDataService.getTicker(cp);
 
                                 log.debug("Got ticker for " + currencyPairToUse.baseSymbol + " "
@@ -390,7 +391,7 @@ public class TickerTimerTask extends TimerTask {
             }
 
             return exchangeToReturn;
-        } catch (com.xeiam.xchange.ExchangeException e) {
+        } catch (com.xeiam.xchange.exceptions.ExchangeException e) {
             // Probably xchange is not on classpath - ticker will not run
             // but error should not spread out from here to rest of MultiBit.
             log.error(e.getClass().getName() + " " + e.getMessage());

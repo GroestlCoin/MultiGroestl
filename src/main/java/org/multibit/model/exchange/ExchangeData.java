@@ -20,7 +20,7 @@ import com.xeiam.xchange.btce.v3.BTCEExchange;
 import com.xeiam.xchange.campbx.CampBXExchange;
 import com.xeiam.xchange.oer.OERExchange;
 import com.xeiam.xchange.poloniex.PoloniexExchange;
-import com.xeiam.xchange.virtex.VirtExExchange;
+import com.xeiam.xchange.virtex.v2.VirtExExchange;
 import org.joda.money.BigMoney;
 
 import java.util.ArrayList;
@@ -137,16 +137,11 @@ public class ExchangeData {
    */
     public static String[] getAvailableExchanges() {
 
-/*        return new String[] { MT_GOX_EXCHANGE_NAME,
-            BITSTAMP_EXCHANGE_NAME,
-=======
         return new String[] { BITSTAMP_EXCHANGE_NAME,
->>>>>>> original_multibit/master
             BTCE_EXCHANGE_NAME,
             CAMPBX_EXCHANGE_NAME,
             OPEN_EXCHANGE_RATES_EXCHANGE_NAME,
-            VIRTEX_EXCHANGE_NAME};*/
-        return new String[] {BTCE_EXCHANGE_NAME};
+            VIRTEX_EXCHANGE_NAME};
     }
 
     public static Collection<String> getAvailableCurrenciesForExchange(String shortExchangeName) {

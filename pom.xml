@@ -426,19 +426,19 @@
             <groupId>com.xeiam.xchange</groupId>
 
             <artifactId>xchange-core</artifactId>
-            <version>2.1.0</version>
+            <version>3.0.0</version>
 
         </dependency>
         <!-- XChange VirtEx exchange support -->
         <dependency>
             <groupId>com.xeiam.xchange</groupId>
             <artifactId>xchange-cavirtex</artifactId>
-            <version>2.0.0</version>
+            <version>${xchange.version}</version>
         </dependency>
         <dependency>
             <groupId>com.xeiam.xchange</groupId>
             <artifactId>xchange-poloniex</artifactId>
-            <version>2.1.0</version>
+            <version>${xchange.version}</version>
         </dependency>
         <!-- XChange Open Exchange Rates exchange support -->
         <dependency>
@@ -450,7 +450,7 @@
         <dependency>
             <groupId>com.xeiam.xchange</groupId>
             <artifactId>xchange-btce</artifactId>
-            <version>2.0.0</version>
+            <version>${xchange.version}</version>
         </dependency>
         <!-- XChange Bitstamp exchange support -->
         <dependency>
@@ -532,7 +532,7 @@
 
 
         <!-- Version of XChange to use -->
-        <xchange.version>1.10.0</xchange.version>
+        <xchange.version>3.0.0</xchange.version>
 
 
         <!-- Version of spongycastle to use -->
