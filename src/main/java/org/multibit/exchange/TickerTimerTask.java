@@ -17,11 +17,13 @@
 package org.multibit.exchange;
 
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
 
+import com.sun.javafx.Utils;
 import com.xeiam.xchange.Exchange;
 
 import com.xeiam.xchange.ExchangeFactory;
@@ -310,8 +312,12 @@ public class TickerTimerTask extends TimerTask {
             Field[] currencyPairFields = CurrencyPair.class.getFields();
             List<CurrencyPair> currencyPairList = new ArrayList<CurrencyPair>(currencyPairFields.length);
             try {
-            for(Field currencyPairField : currencyPairFields)
-                currencyPairList.add((CurrencyPair)currencyPairField.get(CurrencyPair.class));
+                String[] currencyBlackList = {"RUR", "XRP", "DOGE", "DGC", "NMC", "LTC", "PPC", "UTC", "NVC", "TRC", "FTC", "XPM", "XVN", "GHC", "CNC", "WDC", "DVC"};
+            for(Field currencyPairField : currencyPairFields)  {
+                CurrencyPair pair = (CurrencyPair)currencyPairField.get(CurrencyPair.class);
+                if(pair.baseSymbol.equals("BTC") && !DogeUtils.contains(currencyBlackList, pair.counterSymbol))
+                    currencyPairList.add((CurrencyPair)currencyPairField.get(CurrencyPair.class));
+            }
 
             }
             catch (Exception e) {}

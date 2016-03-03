@@ -40,13 +40,13 @@ public class ExchangeData {
     public static final String EXCHANGE_NOT_SET = "NoExchangeSetYet";
 
     public static final String BITCOIN_CHARTS_EXCHANGE_NAME = "BitcoinCharts";
-    public static final String BITSTAMP_EXCHANGE_NAME = "Bitstamp";
+    public static final String BITSTAMP_EXCHANGE_NAME = "Poloniex";
     public static final String BTCE_EXCHANGE_NAME = "BTC-E";
     public static final String CAMPBX_EXCHANGE_NAME = "CampBX";
     public static final String OPEN_EXCHANGE_RATES_EXCHANGE_NAME = "OpenExchangeRates";
     public static final String MT_GOX_EXCHANGE_NAME = "MtGox";  // No longer presently to user
     public static final String VIRTEX_EXCHANGE_NAME = "VirtEx";
-    public static final String POLONIEX_EXCHANGE_NAME = "Poloniex";
+    //public static final String POLONIEX_EXCHANGE_NAME = "Poloniex";
     public static final String BITCOINAVERAGE_EXCHANGE_NAME = "BitcoinAverage";
 
 
@@ -137,11 +137,11 @@ public class ExchangeData {
    */
     public static String[] getAvailableExchanges() {
 
-        return new String[] { BITSTAMP_EXCHANGE_NAME,
-            BTCE_EXCHANGE_NAME,
-            CAMPBX_EXCHANGE_NAME,
-            OPEN_EXCHANGE_RATES_EXCHANGE_NAME,
-            VIRTEX_EXCHANGE_NAME};
+        return new String[] { BITSTAMP_EXCHANGE_NAME};
+            //BTCE_EXCHANGE_NAME,
+            //CAMPBX_EXCHANGE_NAME,
+            //OPEN_EXCHANGE_RATES_EXCHANGE_NAME,
+            //VIRTEX_EXCHANGE_NAME};
     }
 
     public static Collection<String> getAvailableCurrenciesForExchange(String shortExchangeName) {
@@ -172,8 +172,8 @@ public class ExchangeData {
             return OERExchange.class.getName();
         } else if (VIRTEX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
             return VirtExExchange.class.getName();
-        } else if (POLONIEX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
-            return PoloniexExchange.class.getName();
+        //} else if (POLONIEX_EXCHANGE_NAME.equalsIgnoreCase(shortExchangeName)) {
+        //    return PoloniexExchange.class.getName();
         } else {
             // Unidentified exchange.
             return null;
